@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NHÀ Ở XÃ HỘI LỘC AN — Khảo Sát Nhu Cầu &amp; Tư Vấn Điều Kiện Hồ Sơ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mist:#f0f7f2; /* TONE NỀN XANH LÁ MINT NHẠT[cite: 1] */
+    --paper:#ffffff;
+    --ink:#0b1a11;
+    --forest:#0e2417; /* NỀN HERO XANH LÁ ĐẬM SÂU THẨM[cite: 1] */
+    --forest-2:#163a24; /* XANH RỪNG CÔNG NGHỆ[cite: 1] */
+    --sage:#568763;
+    --clay:#10b981; /* ĐIỂM NHẤN XANH LÁ EMERALD PHÁT QUANG[cite: 1] */
+    --gold:#e6f7f0;
+    --mid:#4a6353;
+    --line:rgba(22,58,36,0.08);
+    --glass:rgba(255, 255, 255, 0.7);
+    --cyber-glow: rgba(16, 185, 129, 0.35); /* GLOW XANH LÁ CÔNG NGHỆ[cite: 1] */
+    --ease-wow:cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--mist);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    position: relative;
+  }
+  
+  /* ---- LƯỚI NỀN CÔNG NGHỆ CYBER MINT MATRIX[cite: 1] ---- */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: 
+      linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16, 185, 129, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center;
+    pointer-events: none;
+  }
+
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  ul{list-style:none;}
+  svg{display:block;}
+  :focus-visible{outline:2px solid var(--clay);outline-offset:3px;}
+
+  .serif{font-family:'Fraunces',serif;}
+  .wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(24px,6vw,60px);}
+
+  .eyebrow{
+    font-size:.72rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--clay);
+    font-weight:600;
+    display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{
+    content:"";width:6px;height:6px;
+    background:var(--clay);border-radius:50%;
+    display:inline-block;
+    box-shadow: 0 0 8px var(--clay);
+  }
+  .on-dark .eyebrow{color:var(--gold);}
+  .on-dark .eyebrow::before{background:var(--gold);box-shadow: 0 0 8px var(--gold);}
+
+  /* ---------- INTRO KINETIC MINT TECH[cite: 1] ---------- */
+  #wow-preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--forest);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1.2s var(--ease-wow), visibility 1.2s;
+  }
+  .wow-shimmer {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(22,58,36,0.9) 0%, transparent 70%);
+  }
+  .wow-text-container {
+    overflow: hidden;
+    position: relative;
+    padding: 20px 60px;
+  }
+  .wow-logo {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.5em;
+    text-align: center;
+    transform: scale(1.1);
+    filter: blur(10px);
+    opacity: 0;
+    animation: luxuryRevealLogo 1.8s var(--ease-wow) 0.1s forwards;
+  }
+  .wow-line {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--clay), transparent);
+    animation: luxuryRevealLine 1.5s var(--ease-wow) 0.3s forwards;
+  }
+  
+  body.loading { overflow: hidden; }
+  body.loaded #wow-preloader { opacity: 0; visibility: hidden; }
+
+  @keyframes luxuryRevealLogo {
+    100% { transform: scale(1); opacity: 1; letter-spacing: 0.2em; filter: blur(0); }
+  }
+  @keyframes luxuryRevealLine { 100% { width: 100%; } }
+
+  /* ---------- elevator indicator[cite: 1] ---------- */
+  .elevator{
+    position:fixed;
+    right:32px;top:50%;
+    transform:translateY(-50%);
+    height:280px;width:40px;
+    z-index:150;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .elevator .track{
+    position:relative;
+    width:1px;height:100%;
+    background:rgba(22,58,36,0.1);
+  }
+  .elevator .dot{
+    position:absolute;left:50%;
+    bottom:0%;
+    width:6px;height:6px;border-radius:50%;
+    background:var(--clay);
+    transform:translate(-50%,50%);
+    transition:bottom .3s var(--ease-wow);
+    box-shadow: 0 0 12px var(--clay), 0 0 20px var(--cyber-glow);
+  }
+  .elevator .floor{
+    margin-top:14px;
+    font-family:'Work Sans',sans-serif;
+    font-size:.75rem;
+    font-weight: 600;
+    color:var(--mid);
+    letter-spacing: 0.05em;
+  }
+  @media (max-width:980px){ .elevator{display:none;} }
+
+  /* ---------- header[cite: 1] ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(240,247,242,0.75);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(22,58,36,0.04);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1.2s var(--ease-wow), transform 1.2s var(--ease-wow);
+  }
+  body.loaded header { opacity: 1; transform: translateY(0); transition-delay: 1s; }
+
+  .nav{display:flex;align-items:center;justify-content:space-between;padding-block:22px;}
+  .logo{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;letter-spacing:-.01em;color:var(--forest-2);display:flex;align-items:center;gap:8px;}
+  .logo::after{content:"";width:4px;height:4px;background:var(--clay);border-radius:50%;box-shadow: 0 0 8px var(--clay);}
+  .nav-links{display:flex;gap:40px;font-size:.85rem;font-weight: 500;}
+  .nav-links a{position:relative;color:var(--mid);transition:color .3s var(--ease-wow);padding-bottom:4px;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--clay);transition:width .3s var(--ease-wow);box-shadow: 0 2px 8px var(--cyber-glow);}
+  .nav-links a:hover{color:var(--forest-2);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    font-size:.8rem;font-weight:600;
+    padding:12px 26px;border-radius:40px;
+    background:var(--forest-2);color:var(--mist);
+    box-shadow: 0 4px 15px rgba(22,58,36,0.15);
+    transition:all .3s var(--ease-wow);
+  }
+  .nav-cta:hover{background:var(--clay);box-shadow: 0 4px 20px var(--cyber-glow);transform:translateY(-1px);color: var(--forest);}
+
+  /* ---------- hero[cite: 1] ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;align-items:center;
+    background:radial-gradient(circle at 80% 30%, var(--forest-2), var(--forest) 80%);
+    color:var(--mist);
+    overflow:hidden;
+    padding-top:100px;
+  }
+
+  .hero-photo{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    opacity:0;
+    z-index:0;
+    transform: scale(1.12);
+    filter: blur(20px);
+    transition: opacity 2.5s var(--ease-wow), transform 2.5s var(--ease-wow), filter 2.5s var(--ease-wow);
+  }
+  body.loaded .hero-photo {
+    opacity: .3;
+    transform: scale(1);
+    filter: blur(0);
+    transition-delay: 0.5s;
+  }
+
+  .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg, rgba(14,36,23,0.3), rgba(14,36,23,0.95));}
+  .hero-inner{position:relative;z-index:3;}
+  
+  .hero .reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s var(--ease-wow), transform 1.2s var(--ease-wow);
+  }
+  body.loaded .hero .eyebrow { opacity: 1; transform: translateY(0); transition-delay: 0.9s; }
+  body.loaded .hero h1 { opacity: 1; transform: translateY(0); transition-delay: 1.1s; }
+  body.loaded .hero p.sub { opacity: 1; transform: translateY(0); transition-delay: 1.3s; }
+  body.loaded .hero .cta-group { opacity: 1; transform: translateY(0); transition-delay: 1.5s; }
+
+  .hero h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(2.4rem,6vw,4.5rem);
+    line-height:1.1;
+    margin-top:24px;
+    max-width:900px;
+    background: linear-gradient(135deg, #ffffff 40%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--gold);}
+  .hero p.sub{
+    margin-top:28px;max-width:580px;
+    color:rgba(240,247,242,0.75);
+    font-size:1.08rem;
+    font-weight: 300;
+  }
+  .cta-group{margin-top:42px;display:flex;gap:20px;flex-wrap:wrap;}
+  
+  .btn{
+    font-size:.85rem;font-weight:600;
+    padding:16px 32px;border-radius:40px;
+    letter-spacing: 0.02em;
+    transition:all .4s var(--ease-wow);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-primary{background:var(--clay);color:var(--forest);font-weight:700;box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);}
+  .btn-primary:hover{background:var(--gold);color:var(--forest);box-shadow: 0 6px 25px rgba(230,247,240,0.4);transform:translateY(-2px);}
+  .btn-ghost{border:1px solid rgba(240,247,242,0.25);color:var(--mist);}
+  .btn-ghost:hover{border-color:var(--clay);color:var(--clay);background:rgba(255,255,255,0.05);transform:translateY(-2px);}
+  
+  .on-light .btn-ghost{border-color:rgba(22,58,36,0.2);color:var(--ink);}
+  .on-light .btn-ghost:hover{border-color:var(--clay);color:var(--clay);background:transparent;}
+
+  /* ---------- REVEAL ON SCROLL[cite: 1] ---------- */
+  .reveal{opacity:0;transform:translateY(35px);transition:opacity 1s var(--ease-wow),transform 1s var(--ease-wow);}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  section{padding-block:140px;}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:70px;flex-wrap:wrap;}
+  .sec-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.1rem,4vw,3rem);margin-top:16px;max-width:700px;line-height:1.15;color:var(--forest-2);}
+  .sec-head .note{max-width:380px;color:var(--mid);font-size:.95rem;font-weight: 400;}
+
+  /* ---------- PREMIUM CONVERSION CARD (GLASSMORPHISM)[cite: 1] ---------- */
+  .survey-premium-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(22,58,36,0.03);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.5s var(--ease-wow), box-shadow 0.5s var(--ease-wow);
+  }
+  .survey-premium-card:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 30px 60px rgba(22,58,36,0.08), 0 0 30px rgba(16, 185, 129, 0.15);
+  }
+  .survey-premium-card::before {
+    content: "";
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  .survey-grid-box {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .survey-content-left h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    color: var(--forest-2);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+  .survey-content-left p {
+    color: var(--mid);
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+  
+  /* Lợi ích đặc quyền chuẩn bị sớm */
+  .advantage-features-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .adv-feature-item {
+    background: rgba(255,255,255,0.4);
+    border: 1px solid rgba(22,58,36,0.05);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .adv-feature-item strong {
+    color: var(--clay);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .adv-feature-item p {
+    font-size: 0.85rem;
+    color: var(--mid);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Khối hành động tương tác an toàn */
+  .action-container-right {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 36px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(14,26,22,0.02);
+  }
+  .action-container-right p.notice-lock {
+    font-size: 0.85rem;
+    color: var(--mid);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .action-container-right h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    color: var(--forest-2);
+    margin-bottom: 12px;
+  }
+  .action-container-right .sub-note {
+    font-size: 0.85rem;
+    color: var(--mid);
+    margin-top: 14px;
+    line-height: 1.4;
+  }
+
+  .btn-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shimmer::after {
+    content: "";
+    position: absolute;
+    top: -50%; left: -60%; width: 30%; height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: rotate(30deg);
+    animation: lightShimmer 4s infinite var(--ease-wow);
+  }
+  @keyframes lightShimmer {
+    0% { left: -60%; }
+    30%, 100% { left: 140%; }
+  }
+
+  @media (max-width: 980px) {
+    .survey-grid-box { grid-template-columns: 1fr; gap: 30px; }
+    .survey-content-left { max-width: 100%; }
+    .advantage-features-list { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- HIỆU ỨNG QUÉT TIA LASER XANH MINT HÌNH ẢNH[cite: 1] ---------- */
+  .cyber-img-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: 0 20px 40px rgba(22,58,36,0.04);
+  }
+  .cyber-img-container::after {
+    content: "";
+    position: absolute;
+    top: -10%; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, transparent, var(--clay), #ffffff, var(--clay), transparent);
+    box-shadow: 0 0 12px var(--clay), 0 0 20px var(--cyber-glow);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .cyber-img-container.in-view::after {
+    animation: laserScan 2s ease-in-out forwards;
+  }
+  @keyframes laserScan {
+    0% { top: -5%; opacity: 1; }
+    50% { opacity: 1; }
+    100% { top: 105%; opacity: 0; }
+  }
+
+  .overview-photo{
+    width:100%;height:460px;object-fit:cover;
+    display: block;
+  }
+
+  /* ---------- overview stats[cite: 1] ---------- */
+  .stats-row{display:grid;grid-template-columns:repeat(4,1fr);background: var(--paper);border-radius: 20px;padding:40px 10px;box-shadow: 0 10px 40px rgba(22,58,36,0.02);border: 1px solid var(--line);}
+  .stat{padding-inline:32px;border-left:1px solid var(--line);text-align: center;}
+  .stat:first-child{border-left:none;}
+  .stat .num{font-family:'Fraunces',serif;font-size:clamp(2.2rem,4.5vw,3.4rem);color:var(--clay);font-weight: 600;}
+  .stat .label{margin-top:10px;color:var(--mid);font-size:.85rem;font-weight: 500;letter-spacing: 0.02em;}
+
+  /* ---------- amenities[cite: 1] ---------- */
+  .amenity-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .amenity{
+    background:var(--paper);
+    padding:44px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    transition: all .4s var(--ease-wow);
+  }
+  .amenity:hover{
+    transform: translateY(-6px); 
+    border-color: rgba(16, 185, 129, 0.4); 
+    box-shadow: 0 20px 40px rgba(22,58,36,0.05), 0 0 20px rgba(16, 185, 129, 0.05);
+  }
+  .amenity-img{
+    width:100%;height:220px;object-fit:cover;
+    display: block;
+  }
+  .amenity .icon{width:32px;height:32px;color:var(--clay);margin-bottom:24px;}
+  .amenity h3{font-family:'Fraunces',serif;font-size:1.3rem;margin-bottom:12px;color: var(--forest-2);}
+  .amenity p{color:var(--mid);font-size:.92rem;font-weight: 400;}
+
+  /* ---------- units[cite: 1] ---------- */
+  .unit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .unit-card{
+    background:var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding:36px;
+    transition:all .4s var(--ease-wow);
+    display: flex;
+    flex-direction: column;
+  }
+  .unit-card:hover{
+    transform:translateY(-8px);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 25px 50px rgba(22,58,36,0.06), 0 0 25px rgba(16, 185, 129, 0.05);
+  }
+  .unit-photo{
+    width:100%;height:200px;object-fit:cover;
+    display: block;
+  }
+  .unit-card .type{font-family:'Fraunces',serif;font-size:1.4rem;color: var(--forest-2);margin-top: 4px;}
+  .unit-card .size{color:var(--clay);font-weight:600;margin-top:6px;font-size: 1.05rem;}
+  .unit-card .view{color:var(--mid);font-size:.9rem;margin-top:10px;font-weight: 400;}
+  .plan-note{margin-top:32px;font-size:.8rem;color:var(--mid);font-style:italic;}
+
+  /* ---------- location[cite: 1] ---------- */
+  .loc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:50px;}
+  .loc-list li{
+    display:flex;gap:20px;align-items:flex-start;
+    padding-block:24px;border-top:1px solid var(--line);
+  }
+  .loc-list li:last-child{border-bottom:1px solid var(--line);}
+  .loc-list .mark{color:var(--clay);font-family:'Fraunces',serif;font-size:1.2rem;font-weight: 600;}
+  .loc-list p{color:var(--mid);font-size:.98rem;}
+  .loc-list p strong{color:var(--ink);font-weight: 500;}
+  .loc-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .loc-overlay-text{position:relative;z-index:3;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);padding:16px 24px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.04);font-size: 0.88rem;color: var(--forest-2);font-weight: 500;}
+  
+  .track-line{position:absolute;left:0;right:0;bottom:24%;height:1px;background:rgba(22,58,36,0.15);z-index:1;}
+  .train-icon{position:absolute;bottom:calc(24% - 9px);left:-60px;width:46px;color:var(--forest-2);z-index:2;animation:trainMove 9s linear infinite;}
+  @keyframes trainMove{from{left:-60px;}to{left:110%;}}
+  .plane-icon{position:absolute;top:78%;left:-30px;width:26px;color:var(--clay);z-index:2;animation:planeFly 12s linear infinite;}
+  @keyframes planeFly{
+    0%{top:80%;left:-30px;transform:rotate(0deg);}
+    100%{top:4%;left:108%;transform:rotate(0deg);}
+  }
+  @media (max-width:980px){ .train-icon, .plane-icon{display:none;} }
+
+  /* ---------- FINAL CONTACT SECTION[cite: 1] ---------- */
+  .final{
+    background: linear-gradient(180deg, var(--mist) 0%, #d2ebd9 150%);
+    text-align:center;
+    position: relative;
+  }
+  .final h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.2rem,5.5vw,3.5rem);max-width:800px;margin:20px auto 0;line-height: 1.1;color: var(--forest-2);}
+  .final p{color:var(--mid);margin-top:22px;max-width:560px;margin-inline:auto;font-size: 1.02rem;}
+  .final .cta-group{justify-content:center;margin-top:40px;}
+  .contact-meta{margin-top:50px;display:flex;justify-content:center;gap:40px;font-size:.88rem;color:var(--mid);font-weight: 500;flex-wrap:wrap;}
+
+  /* ---------- footer[cite: 1] ---------- */
+  footer{border-top:1px solid var(--line);padding-block:50px;background: var(--paper);}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
+  .foot-links{display:flex;gap:32px;font-size:.85rem;font-weight: 500;color:var(--mid);}
+  .foot-links a:hover{color:var(--clay);}
+  .disclaimer{margin-top:30px;font-size:.76rem;color:var(--mid);font-style:italic;max-width:950px;line-height:1.65;}
+
+  @media (max-width:860px) {
+    .nav-links{display:none;}
+    .stats-row{grid-template-columns:repeat(2,1fr);row-gap:24px;padding:30px 10px;}
+    .stat{padding-inline:12px;}
+    .stat:nth-child(3){border-left:none;}
+    .amenity-grid, .unit-grid, .loc-grid{grid-template-columns:1fr;}
+    section { padding-block: 90px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    .reveal{opacity:1;transform:none;}
+    #wow-preloader { display: none; }
+    .cyber-img-container::after { display: none !important; }
+  }
+</style>
+</head>
+<body class="loading">
+
+<!-- HIỆU ỨNG MỞ MÀN KINETIC MINT TECH[cite: 1] -->
+<div id="wow-preloader" aria-hidden="true">
+  <div class="wow-shimmer"></div>
+  <div class="wow-text-container">
+    <div class="wow-logo">LỘC AN</div>
+    <div class="wow-line"></div>
+  </div>
+</div>
+
+<div class="elevator" aria-hidden="true">
+  <div class="track"><div class="dot" id="elevatorDot"></div></div>
+  <div class="floor" id="elevatorFloor">01</div>
+</div>
+
+<header>
+  <nav class="nav wrap">
+    <a href="#top" class="logo">Lộc An</a>
+    <ul class="nav-links">
+      <li><a href="#survey-section">Khảo Sát Điều Kiện</a></li>
+      <li><a href="#overview">Tổng quan</a></li>
+      <li><a href="#amenities">Tiện ích xanh</a></li>
+      <li><a href="#units">Mặt bằng căn hộ</a></li>
+      <li><a href="#location">Vị trí kết nối</a></li>
+    </ul>
+    <a href="https://forms.gle/1cuVdcMC4Y9SjgSh9" target="_blank" class="nav-cta">Tham gia khảo sát</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero on-dark" id="top">
+    <img class="hero-photo" src="images/1.jpg" alt="Phối cảnh tổng thể dự án Nhà ở xã hội Lộc An">
+    <div class="hero-overlay"></div>
+    <div class="wrap hero-inner">
+      <div class="eyebrow reveal-text">Giai Đoạn Khảo Sát Nhu Cầu Thị Trường &amp; Thẩm Định Hồ Sơ</div>
+      <h1 class="reveal-text">Kế hoạch an cư chuẩn mực <em>với chi phí tối ưu</em> tại Long Thành.</h1>
+      <p class="sub reveal-text">Dự án Nhà ở xã hội Lộc An đang trong giai đoạn nghiên cứu và lấy ý kiến khách hàng nhằm hoàn thiện thiết kế tối ưu nhất. Hãy tham gia khảo sát để được hỗ trợ kiểm tra điều kiện hồ sơ pháp lý sớm theo luật định mới.</p>
+      <div class="cta-group reveal-text">
+        <a href="https://forms.gle/1cuVdcMC4Y9SjgSh9" target="_blank" class="btn btn-primary btn-shimmer">Đóng Góp Ý Kiến Khảo Sát</a>
+        <a href="#overview" class="btn btn-ghost">Tìm hiểu dự án</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: KHỐI KHẢO SÁT HIỆN ĐẠI (ĐÃ CHUẨN HÓA AN TOÀN PHÁP LÝ TUYỆT ĐỐI)[cite: 1] -->
+  <section id="survey-section" class="on-light" style="padding-top: 100px; background: linear-gradient(180deg, var(--mist) 0%, #dae8dc 100%);">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="eyebrow">Nghiên cứu &amp; Phát triển</div>
+          <h2>Đóng góp ý kiến hoàn thiện không gian sống</h2>
+        </div>
+        <p class="note">Phiếu khảo sát giúp chủ đầu tư đánh giá chính xác nguyện vọng thị trường về cơ cấu căn hộ, đồng thời hỗ trợ người dân kiểm tra điều kiện mua nhà trước giai đoạn triển khai chính thức.</p>
+      </div>
+
+      <div class="survey-premium-card reveal">
+        <div class="survey-grid-box">
+          <div class="survey-content-left">
+            <h3>Phiếu Thẩm Định &amp; Đánh Giá Nhu Cầu Căn Hộ Dự Kiến</h3>
+            <p>Hồ sơ đăng ký mua Nhà ở xã hội đòi hỏi quy trình xét duyệt pháp lý chặt chẽ (đối tượng ưu tiên, thực trạng nhà ở, hạn mức thu nhập cá nhân dưới 25 triệu VND/tháng đối với người độc thân). Việc tham gia khảo sát sớm giúp bạn nắm rõ các bước chuẩn bị thủ tục hành chính nhanh chóng và chính xác nhất.</p>
+            
+            <div class="advantage-features-list">
+              <div class="adv-feature-item">
+                <strong>Đón Đầu Cơ Hội An Cư</strong>
+                <p>Hiểu rõ quy trình xét duyệt thang điểm ưu tiên của cơ quan Nhà nước trước khi dự án mở cổng nhận hồ sơ chính thức.</p>
+              </div>
+              <div class="adv-feature-item">
+                <strong>Tối Ưu Hóa Thiết Kế</strong>
+                <p>Ý kiến của bạn trực tiếp quyết định đến cơ cấu diện tích căn hộ mẫu từ 45m² đến 85m² trong quy hoạch chi tiết cuối cùng.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="action-container-right">
+            <p class="notice-lock">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Kết nối biểu mẫu bảo mật dữ liệu nội bộ
+            </p>
+            <h4>Hỗ trợ tư vấn pháp lý hồ sơ</h4>
+            <a href="https://forms.gle/1cuVdcMC4Y9SjgSh9" target="_blank" class="btn btn-primary btn-shimmer" style="padding: 18px 36px; font-size: 0.9rem; border-radius: 12px; width: 100%;">Tham Gia Phiếu Khảo Sát</a>
+            <p class="sub-note">* Biểu mẫu thu thập dữ liệu tự nguyện phục vụ công tác thống kê nhu cầu phát triển dự án của phòng Đầu tư.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="overview" class="on-light">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="eyebrow">Định hướng quy hoạch</div>
+          <h2>Tổ hợp căn hộ hiện đại quy hoạch đồng bộ</h2>
+        </div>
+        <p class="note">Dự kiến phát triển trên quỹ đất rộng khoảng 3.6 ha tại trung tâm kinh tế mới Long Thành, dự án hướng tới mục tiêu đáp ứng trọn vẹn nhu cầu an cư lạc nghiệp lâu dài.</p>
+      </div>
+      
+      <div class="cyber-img-container reveal">
+        <img class="overview-photo" src="images/2.jpg" alt="Quy hoạch không gian kiến trúc dự án Lộc An">
+      </div>
+      
+      <div class="stats-row reveal" style="margin-top: 60px;">
+        <div class="stat"><div class="num serif" data-count="4" data-suffix="">0</div><div class="label">Block chung cư dự kiến</div></div>
+        <div class="stat"><div class="num serif" data-count="1111" data-suffix="">0</div><div class="label">Căn hộ hoàn thiện dự kiến</div></div>
+        <div class="stat"><div class="num serif" data-count="108" data-suffix="">0</div><div class="label">Căn Shophouse kinh doanh khối đế</div></div>
+        <div class="stat"><div class="num serif" data-count="3.6" data-suffix="ha">0</div><div class="label">Tổng diện tích quỹ đất nghiên cứu</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="amenities" class="on-light">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="eyebrow">Ý tưởng tiện ích</div>
+          <h2>Hệ sinh thái tiện ích tích hợp toàn diện</h2>
+        </div>
+        <p class="note">Định hướng tích hợp chuỗi tiện ích đa dạng, đảm bảo một môi trường sống năng động, an lành và an ninh khép kín cho toàn bộ cư dân tương lai.</p>
+      </div>
+      <div class="amenity-grid reveal">
+        <div class="amenity">
+          <div class="cyber-img-container">
+            <img class="amenity-img" src="images/3.jpg" alt="Công viên cảnh quan nội khu">
+          </div>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21V11M12 11C12 6 8 4 4 4C4 8 6 11 12 11ZM12 11C12 6 16 4 20 4C20 8 18 11 12 11Z"/></svg>
+          <h3>Công viên trung tâm &amp; Đường dạo bộ</h3>
+          <p>Mảng xanh rộng lớn đan xen giữa các block nhà, tạo không gian thư giãn, rèn luyện sức khỏe trong lành tách biệt với khói bụi.</p>
+        </div>
+        <div class="amenity">
+          <div class="cyber-img-container">
+            <img class="amenity-img" src="images/4.jpg" alt="Khu shophouse mua sắm thương mại">
+          </div>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <h3>Tuyến phố Shophouse thương mại</h3>
+          <p>Khu shophouse khối đế cung cấp đầy đủ dịch vụ mua sắm, siêu thị tiện lợi, nhà thuốc và ẩm thực ngay dưới thềm nhà.</p>
+        </div>
+        <div class="amenity">
+          <div class="cyber-img-container">
+            <img class="amenity-img" src="images/5.jpg" alt="Khu vui chơi trẻ em">
+          </div>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="6" r="2.4"/><path d="M5 21l3-7 4 2 4-2 3 7M9 13l1-5h4l1 5"/></svg>
+          <h3>Khu vui chơi trẻ em &amp; Thể thao ngoài trời</h3>
+          <p>Khu vực phát triển thể chất an toàn dành riêng cho trẻ em cùng các cụm máy tập thể dục đa năng ngoài trời cho cư dân.</p>
+        </div>
+        <div class="amenity">
+          <div class="cyber-img-container">
+            <img class="amenity-img" src="images/6.jpg" alt="Hệ thống an ninh giám sát">
+          </div>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h3>An ninh &amp; Vận hành chuyên nghiệp</h3>
+          <p>Hệ thống camera giám sát 24/7, lực lượng bảo vệ túc trực cùng đội ngũ quản lý vận hành tòa nhà chuyên nghiệp, tận tâm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="units" class="on-light">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="eyebrow">Ý tưởng không gian sống</div>
+          <h2>Không gian tối ưu hóa trên từng mét vuông</h2>
+        </div>
+        <p class="note">Mặt bằng thiết kế căn hộ dự kiến được bố trí thông minh, đảm bảo tối đa khả năng đón gió tự nhiên và ánh sáng trực tiếp.</p>
+      </div>
+      <div class="unit-grid reveal">
+        <div class="unit-card">
+          <div class="cyber-img-container">
+            <img class="unit-photo" src="images/7.jpg" alt="Căn hộ mẫu 1 Phòng ngủ">
+          </div>
+          <div class="type serif">Căn hộ dự kiến 1 Phòng ngủ</div>
+          <div class="size">45 – 50 m²</div>
+          <div class="view">Định hướng cho người độc thân / Cặp đôi</div>
+        </div>
+        <div class="unit-card">
+          <div class="cyber-img-container">
+            <img class="unit-photo" src="images/8.jpg" alt="Căn hộ mẫu 2 Phòng ngủ">
+          </div>
+          <div class="type serif">Căn hộ dự kiến 2 Phòng ngủ</div>
+          <div class="size">60 – 70 m²</div>
+          <div class="view">Thiết kế tiêu chuẩn cho gia đình nhỏ</div>
+        </div>
+        <div class="unit-card">
+          <div class="cyber-img-container">
+            <img class="unit-photo" src="images/9.jpg" alt="Căn hộ mẫu 3 Phòng ngủ">
+          </div>
+          <div class="type serif">Căn hộ dự kiến 3 Phòng ngủ</div>
+          <div class="size">75 – 85 m²</div>
+          <div class="view">Căn góc, phương án tối ưu cho gia đình đa thế hệ</div>
+        </div>
+      </div>
+      <div class="plan-note">* Toàn bộ thông số kỹ thuật, diện tích chi tiết mang tính chất định hướng khảo sát ý kiến và sẽ áp dụng chính xác theo bản vẽ thi công được cơ quan chức năng phê duyệt sau này.</div>
+    </div>
+  </section>
+
+  <section id="location" class="on-light">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="eyebrow">Định vị liên kết vùng</div>
+          <h2>Tâm điểm kết nối hạ tầng giao thông trọng điểm</h2>
+        </div>
+      </div>
+      <div class="loc-grid reveal">
+        <ul class="loc-list">
+          <li><span class="mark">01</span><p><strong>Cận kề các KCN lớn:</strong> Thuận tiện di chuyển đến KCN Lộc An - Bình Sơn, KCN Long Thành và KCN Nhơn Trạch, đáp ứng nhu cầu làm việc của lực lượng lao động.</p></li>
+          <li><span class="mark">02</span><p><strong>Kết nối cao tốc huyết mạch:</strong> Nằm gần nút giao Cao tốc TP.HCM - Long Thành - Dầu Giây và Quốc lộ 51, rút ngắn thời gian di chuyển về TP.HCM và Vũng Tàu.</p></li>
+          <li><span class="mark">03</span><p><strong>Đón đầu siêu hạ tầng:</strong> Cách Sân bay Quốc tế Long Thành chỉ ít phút di chuyển, hưởng lợi trực tiếp từ sự phát triển đô thị sân bay.</p></li>
+          <li><span class="mark">04</span><p><strong>Tiện ích công cộng sẵn có:</strong> Bán kính 3km hội tụ đầy đủ hệ thống trường học các cấp, chợ dân sinh, trung tâm y tế và cơ quan hành chính địa phương.</p></li>
+        </ul>
+        <div class="loc-visual cyber-img-container reveal">
+          <img class="loc-photo" src="images/10.jpg" alt="Bản đồ vị trí liên kết vùng dự án Lộc An">
+          <div class="track-line"></div>
+          <svg class="train-icon" viewBox="0 0 60 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="40" height="14" rx="3"/><line x1="3" y1="11" x2="43" y2="11"/><circle cx="13" cy="20" r="2" fill="currentColor" stroke="none"/><circle cx="33" cy="20" r="2" fill="currentColor" stroke="none"/><line x1="43" y1="11" x2="50" y2="11"/></svg>
+          <svg class="plane-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M2 12L22 2L14 22L11 14L2 12Z"/></svg>
+          <div class="loc-overlay-text">Vị trí kết nối trung tâm Long Thành — Đồng Nai</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="contact">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center;">Bộ Phận Đầu Tư Dự Án</div>
+      <h2 class="reveal">Tìm hiểu quy trình và chuẩn bị điều kiện hồ sơ sớm.</h2>
+      <p class="reveal">Mọi đóng góp ý kiến nghiên cứu phát triển hoặc yêu cầu hỗ trợ giải đáp thắc mắc trước về điều kiện đối tượng mua Nhà ở xã hội, vui lòng liên hệ trực tiếp với chúng tôi qua email.</p>
+      <div class="cta-group">
+        <a href="mailto:lienhe@locan-socialhousing.vn" class="btn btn-primary btn-shimmer">Liên Hệ Trực Tiếp Qua Email</a>
+      </div>
+      <div class="contact-meta">
+        <span><a href="mailto:lienhe@locan-socialhousing.vn">lienhe@locan-socialhousing.vn</a></span>
+        <span>+84 (0) 251 XXX XXXX</span>
+        <span>Long Thành, Đồng Nai, VN</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <a href="#top" class="logo">Lộc An</a>
+      <div class="foot-links">
+        <a href="#survey-section">Khảo sát</a>
+        <a href="#overview">Tổng quan</a>
+        <a href="#amenities">Tiện ích</a>
+        <a href="#units">Ý tưởng mặt bằng</a>
+        <a href="mailto:lienhe@locan-socialhousing.vn">Liên hệ Email</a>
+      </div>
+      <div class="foot-links">© 2026 Nhà ở xã hội Lộc An. All rights reserved.</div>
+    </div>
+    <p class="disclaimer">Cơ sở pháp lý &amp; Tiêu chuẩn áp dụng: Dự án tuân thủ nghiêm ngặt các quy định của Luật Nhà ở, Luật Kinh doanh Bất động sản và các Nghị định hướng dẫn thi hành liên quan đến đối tượng, điều kiện thu nhập (áp dụng hạn mức mới theo quy định đối với cá nhân/hộ gia đình). Mọi thông tin thu thập qua biểu mẫu khảo sát chỉ phục vụ mục đích nghiên cứu nhu cầu phát triển dự án nội bộ. Trang thông tin này mang tính chất giới thiệu định hướng khảo sát ý kiến thị trường, hoàn toàn không phải là hoạt động chào bán, kinh doanh hay huy động vốn. Các thông số, số liệu kỹ thuật công bố sẽ được cập nhật chuẩn xác dựa trên hồ sơ pháp lý, phê duyệt quy hoạch chi tiết 1/500 và giấy phép xây dựng chính thức từ cơ quan quản lý Nhà nước trước khi triển khai kinh doanh thương mại.</p>
+  </div>
+</footer>
+
+<script>
+  // QUẢN LÝ KỊCH BẢN KÍCH HOẠT INTRO MỞ MÀN KHỞI ĐỘNG[cite: 1]
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.body.classList.remove('loading');
+      document.body.classList.add('loaded');
+    }, 1500);
+  });
+
+  // TÍCH HỢP HIỆU ỨNG LASER TRÊN HÌNH ẢNH KHI PHÁT HIỆN CUỘN TRANG (INTERSECTION OBSERVER)[cite: 1]
+  const imageContainers = document.querySelectorAll('.cyber-img-container');
+  const imgIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        imgIo.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  imageContainers.forEach(container => imgIo.observe(container));
+
+  // reveal các block text on scroll[cite: 1]
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+    });
+  }, { threshold:0.15 });
+  revealEls.forEach(el=>io.observe(el));
+
+  // count-up stats số liệu[cite: 1]
+  const counters = document.querySelectorAll('.stat .num');
+  const countIo = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const target = parseFloat(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const isFloat = target % 1 !== 0;
+        const duration = 1400;
+        const start = performance.now();
+        function step(now){
+          const p = Math.min((now-start)/duration,1);
+          const eased = 1-Math.pow(1-p,3);
+          const val = isFloat ? (eased*target).toFixed(1) : Math.floor(eased*target);
+          el.textContent = val + suffix;
+          if(p<1) requestAnimationFrame(step);
+          else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(step);
+        countIo.unobserve(el);
+      }
+    });
+  }, { threshold:0.5 });
+  counters.forEach(c=>countIo.observe(c));
+
+  // thanh elevator định vị cuộn trang[cite: 1]
+  const dot = document.getElementById('elevatorDot');
+  const floorLabel = document.getElementById('elevatorFloor');
+  function updateElevator(){
+    const h = document.documentElement;
+    const frac = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    const clamped = Math.max(0, Math.min(1, frac));
+    dot.style.bottom = (clamped*100) + '%';
+    const floor = Math.round(1 + clamped*39);
+    floorLabel.textContent = String(floor).padStart(2,'0');
+  }
+  document.addEventListener('scroll', updateElevator, { passive:true });
+  updateElevator();
+</script>
+
+</body>
+</html>
