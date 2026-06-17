@@ -347,9 +347,23 @@
   .btn-ghost{border:1px solid rgba(17,51,30,0.2);color:var(--forest-2);}
   .btn-ghost:hover{border-color:var(--clay);color:var(--clay);background:rgba(16,185,129,0.04);transform:translateY(-2px);}
 
-  /* ---------- REVEAL ON SCROLL ---------- */
-  .reveal{opacity:0;transform:translateY(35px);transition:opacity 1s var(--ease-wow),transform 1s var(--ease-wow);}
-  .reveal.in-view{opacity:1;transform:translateY(0);}
+  /* ---------- HIỆU ỨNG CHỮ CHẠY RA KHI CUỘN TRANG (KINETIC TEXT REVEAL) ---------- */
+  .reveal{
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    filter: blur(4px);
+    transition: opacity 1.1s var(--ease-wow), transform 1.1s var(--ease-wow), filter 1.1s var(--ease-wow);
+    will-change: transform, opacity, filter;
+  }
+  .reveal.in-view{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  
+  .sec-head h2.reveal { transition-delay: 0.1s; }
+  .sec-head p.note.reveal { transition-delay: 0.2s; }
+  .survey-premium-card .reveal { transition-delay: 0.15s; }
 
   section{padding-block:120px;}
   .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:60px;flex-wrap:wrap;}
@@ -491,7 +505,6 @@
     padding:44px;
     border-radius: 20px;
     border: 1px solid var(--line);
-    transition: all .4s var(--ease-wow);
   }
   .amenity:hover{
     transform: translateY(-6px); 
@@ -513,7 +526,6 @@
     border: 1px solid var(--line);
     border-radius: 24px;
     padding:36px;
-    transition:all .4s var(--ease-wow);
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -645,33 +657,33 @@
 
   <section id="survey-section" style="padding-top: 100px; background: linear-gradient(180deg, var(--mist) 0%, #e3f4e9 100%);">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <div>
+      <div class="sec-head">
+        <div class="reveal">
           <div class="eyebrow">Nghiên cứu & Phát triển</div>
           <h2>Đóng góp ý kiến hoàn thiện không gian sống</h2>
         </div>
-        <p class="note">Phiếu khảo sát giúp chủ đầu tư đánh giá chính xác nguyện vọng thị trường về cơ cấu căn hộ, đồng thời hỗ trợ người dân kiểm tra điều kiện mua nhà trước giai đoạn triển khai chính thức.</p>
+        <p class="note reveal">Phiếu khảo sát giúp chủ đầu tư đánh giá chính xác nguyện vọng thị trường về cơ cấu căn hộ, đồng thời hỗ trợ người dân kiểm tra điều kiện mua nhà trước giai đoạn triển khai chính thức.</p>
       </div>
 
       <div class="survey-premium-card reveal">
         <div class="survey-grid-box">
           <div class="survey-content-left">
-            <h3>Phiếu Thẩm Định & Đánh Giá Nhu Cầu Căn Hộ Dự Kiến</h3>
-            <p>Hồ sơ đăng ký mua Nhà ở xã hội đòi hỏi quy trình xét duyệt pháp lý chặt chẽ (đối tượng ưu tiên, thực trạng nhà ở, hạn mức thu nhập cá nhân dưới 25 triệu VND/tháng đối với người độc thân). Việc tham gia khảo sát sớm giúp bạn nắm rõ các bước chuẩn bị thủ tục hành chính nhanh chóng và chính xác nhất.</p>
+            <h3 class="reveal">Phiếu Thẩm Định & Đánh Giá Nhu Cầu Căn Hộ Dự Kiến</h3>
+            <p class="reveal">Hồ sơ đăng ký mua Nhà ở xã hội đòi hỏi quy trình xét duyệt pháp lý chặt chẽ (đối tượng ưu tiên, thực trạng nhà ở, hạn mức thu nhập cá nhân dưới 25 triệu VND/tháng đối với người độc thân). Việc tham gia khảo sát sớm giúp bạn nắm rõ các bước chuẩn bị thủ tục hành chính nhanh chóng và chính xác nhất.</p>
             
             <div class="advantage-features-list">
-              <div class="adv-feature-item">
+              <div class="adv-feature-item reveal">
                 <strong>Đón Đầu Cơ Hội An Cư</strong>
                 <p>Hiểu rõ quy trình xét duyệt thang điểm ưu tiên của cơ quan Nhà nước trước khi dự án mở cổng nhận hồ sơ chính thức.</p>
               </div>
-              <div class="adv-feature-item">
+              <div class="adv-feature-item reveal">
                 <strong>Tối Ưu Hóa Thiết Kế</strong>
                 <p>Ý kiến của bạn trực tiếp quyết định đến cơ cấu diện tích căn hộ mẫu từ 45m² đến 85m² trong quy hoạch chi tiết cuối cùng.</p>
               </div>
             </div>
           </div>
           
-          <div class="action-container-right">
+          <div class="action-container-right reveal">
             <p class="notice-lock">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
               Kết nối biểu mẫu bảo mật dữ liệu nội bộ
@@ -687,12 +699,12 @@
 
   <section id="overview" class="on-light">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <div>
+      <div class="sec-head">
+        <div class="reveal">
           <div class="eyebrow">Định hướng quy hoạch</div>
           <h2>Tổ hợp căn hộ hiện đại quy hoạch đồng bộ</h2>
         </div>
-        <p class="note">Dự kiến phát triển trên quỹ đất rộng khoảng 3.6 ha tại trung tâm kinh tế mới Long Thành, dự án hướng tới mục tiêu đáp ứng trọn vẹn nhu cầu an cư lạc nghiệp lâu dài.</p>
+        <p class="note reveal">Dự kiến phát triển trên quỹ đất rộng khoảng 3.6 ha tại trung tâm kinh tế mới Long Thành, dự án hướng tới mục tiêu đáp ứng trọn vẹn nhu cầu an cư lạc nghiệp lâu dài.</p>
       </div>
       
       <div class="cyber-img-container reveal">
@@ -710,15 +722,15 @@
 
   <section id="amenities" class="on-light">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <div>
+      <div class="sec-head">
+        <div class="reveal">
           <div class="eyebrow">Ý tưởng tiện ích</div>
           <h2>Hệ sinh thái tiện ích tích hợp toàn diện</h2>
         </div>
-        <p class="note">Định hướng tích hợp chuỗi tiện ích đa dạng, đảm bảo một môi trường sống năng động, an lành và an ninh khép kín cho toàn bộ cư dân tương lai.</p>
+        <p class="note reveal">Định hướng tích hợp chuỗi tiện ích đa dạng, đảm bảo một môi trường sống năng động, an lành và an ninh khép kín cho toàn bộ cư dân tương lai.</p>
       </div>
-      <div class="amenity-grid reveal">
-        <div class="amenity">
+      <div class="amenity-grid">
+        <div class="amenity reveal">
           <div class="cyber-img-container">
             <img class="amenity-img" src="images/3.jpg" alt="Công viên cảnh quan nội khu">
           </div>
@@ -726,7 +738,7 @@
           <h3>Công viên trung tâm & Đường dạo bộ</h3>
           <p>Mảng xanh rộng lớn đan xen giữa các block nhà, tạo không gian thư giãn, rèn luyện sức khỏe trong lành tách biệt với khói bụi.</p>
         </div>
-        <div class="amenity">
+        <div class="amenity reveal">
           <div class="cyber-img-container">
             <img class="amenity-img" src="images/4.jpg" alt="Căn hộ thương mại dịch vụ">
           </div>
@@ -734,7 +746,7 @@
           <h3>Tuyến phố căn hộ thương mại dịch vụ</h3>
           <p>Khu vực thương mại khối đế cung cấp đầy đủ dịch vụ mua sắm, siêu thị tiện lợi, nhà thuốc và ẩm thực ngay dưới thềm nhà.</p>
         </div>
-        <div class="amenity">
+        <div class="amenity reveal">
           <div class="cyber-img-container">
             <img class="amenity-img" src="images/5.jpg" alt="Khu vui chơi trẻ em">
           </div>
@@ -742,7 +754,7 @@
           <h3>Khu vui chơi trẻ em & Thể thao ngoài trời</h3>
           <p>Khu vực phát triển thể chất an toàn dành riêng cho trẻ em cùng các cụm máy tập thể dục đa năng ngoài trời cho cư dân.</p>
         </div>
-        <div class="amenity">
+        <div class="amenity reveal">
           <div class="cyber-img-container">
             <img class="amenity-img" src="images/6.jpg" alt="Hệ thống an ninh giám sát">
           </div>
@@ -756,16 +768,16 @@
 
   <section id="units" class="on-light">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <div>
+      <div class="sec-head">
+        <div class="reveal">
           <div class="eyebrow">Ý tưởng không gian sống</div>
           <h2>Không gian tối ưu hóa trên từng mét vuông</h2>
         </div>
-        <p class="note">Mặt bằng thiết kế căn hộ dự kiến được bố trí thông minh, đảm bảo tối đa khả năng đón gió tự nhiên và ánh sáng trực tiếp.</p>
+        <p class="note reveal">Mặt bằng thiết kế căn hộ dự kiến được bố trí thông minh, đảm bảo tối đa khả năng đón gió tự nhiên và ánh sáng trực tiếp.</p>
       </div>
       
-      <div class="unit-grid reveal">
-        <a href="index1.html" class="unit-card">
+      <div class="unit-grid">
+        <a href="index1.html" class="unit-card reveal">
           <div class="cyber-img-container">
             <img class="unit-photo" src="images/7.jpg" alt="Căn hộ mẫu 1 Phòng ngủ">
           </div>
@@ -774,7 +786,7 @@
           <div class="view">Định hướng cho người độc thân / Cặp đôi</div>
         </a>
 
-        <a href="index2.html" class="unit-card">
+        <a href="index2.html" class="unit-card reveal">
           <div class="cyber-img-container">
             <img class="unit-photo" src="images/8.jpg" alt="Căn hộ mẫu 2 Phòng ngủ">
           </div>
@@ -783,7 +795,7 @@
           <div class="view">Thiết kế tiêu chuẩn cho gia đình nhỏ</div>
         </a>
 
-        <a href="index3.html" class="unit-card">
+        <a href="index3.html" class="unit-card reveal">
           <div class="cyber-img-container">
             <img class="unit-photo" src="images/9.jpg" alt="Căn hộ mẫu 3 Phòng ngủ">
           </div>
@@ -793,30 +805,30 @@
         </a>
       </div>
        
-      <div class="plan-note">* Toàn bộ thông số kỹ thuật, diện tích chi tiết mang tính chất định hướng khảo sát ý kiến và sẽ áp dụng chính xác theo bản vẽ thi công được cơ quan chức năng phê duyệt sau này.</div>
+      <div class="plan-note reveal">* Toàn bộ thông số kỹ thuật, diện tích chi tiết mang tính chất định hướng khảo sát ý kiến và sẽ áp dụng chính xác theo bản vẽ thi công được cơ quan chức năng phê duyệt sau này.</div>
     </div>
   </section>
 
   <section id="location" class="on-light">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <div>
+      <div class="sec-head">
+        <div class="reveal">
           <div class="eyebrow">Định vị liên kết vùng</div>
           <h2>Tâm điểm kết nối hạ tầng giao thông trọng điểm</h2>
         </div>
       </div>
-      <div class="loc-grid reveal">
+      <div class="loc-grid">
         <ul class="loc-list">
-          <li><span class="mark">01</span><p><strong>Cận kề các KCN lớn:</strong> Thuận tiện di chuyển đến KCN Lộc An - Bình Sơn, KCN Long Thành và KCN Nhơn Trạch, đáp ứng nhu cầu làm việc của lực lượng lao động.</p></li>
-          <li><span class="mark">02</span><p><strong>Kết nối cao tốc huyết mạch:</strong> Nằm gần nút giao Cao tốc TP.HCM - Long Thành - Dầu Giây và Quốc lộ 51, rút ngắn thời gian di chuyển về TP.HCM và Vũng Tàu.</p></li>
-          <li><span class="mark">03</span><p><strong>Đón đầu siêu hạ tầng:</strong> Cách Sân bay Quốc tế Long Thành chỉ ít phút di chuyển, hưởng lợi trực tiếp từ sự phát triển đô thị sân bay.</p></li>
-          <li><span class="mark">04</span><p><strong>Tiện ích công cộng sẵn có:</strong> Bán kính 3km hội tụ đầy đủ hệ thống trường học các cấp, chợ dân sinh, trung tâm y tế và cơ quan hành chính địa phương.</p></li>
+          <li class="reveal"><span class="mark">01</span><p><strong>Cận kề các KCN lớn:</strong> Thuận tiện di chuyển đến KCN Lộc An - Bình Sơn, KCN Long Thành và KCN Nhơn Trạch, đáp ứng nhu cầu làm việc của lực lượng lao động.</p></li>
+          <li class="reveal"><span class="mark">02</span><p><strong>Kết nối cao tốc huyết mạch:</strong> Nằm gần nút giao Cao tốc TP.HCM - Long Thành - Dầu Giây và Quốc lộ 51, rút ngắn thời gian di chuyển về TP.HCM và Vũng Tàu.</p></li>
+          <li class="reveal"><span class="mark">03</span><p><strong>Đón đầu siêu hạ tầng:</strong> Cách Sân bay Quốc tế Long Thành chỉ ít phút di chuyển, hưởng lợi trực tiếp từ sự phát triển đô thị sân bay.</p></li>
+          <li class="reveal"><span class="mark">04</span><p><strong>Tiện ích công cộng sẵn có:</strong> Bán kính 3km hội tụ đầy đủ hệ thống trường học các cấp, chợ dân sinh, trung tâm y tế và cơ quan hành chính địa phương.</p></li>
         </ul>
         
-        <div class="loc-visual">
+        <div class="loc-visual reveal">
           <div class="cyber-img-container" style="height: 520px; overflow: hidden; background: #eee;">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3919.245229656898!2d106.9743112!3d10.7902064!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ3JzI0LjciTiAxMDbCsDU4JzI3LjUiRQ!5e0!3m2!1svi!2svn!4v1716000000000!5m2!1svi!2svn" 
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3919.1678120619176!2d106.9744!3d10.79022!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ3JzI0LjgiTiAxMDbCsDU4JzI3LjgiRQ!5e0!3m2!1svi!2svn!4v1716300000000!5m2!1svi!2svn" 
               width="100%" 
               height="100%" 
               style="border:0;" 
@@ -837,13 +849,13 @@
 
   <section class="final" id="contact">
     <div class="wrap">
-      <div class="eyebrow" style="justify-content:center;">Bộ Phận Đầu Tư Dự Án</div>
+      <div class="eyebrow reveal" style="justify-content:center;">Bộ Phận Đầu Tư Dự Án</div>
       <h2 class="reveal">Tìm hiểu quy trình và chuẩn bị điều kiện hồ sơ sớm.</h2>
       <p class="reveal">Mọi đóng góp ý kiến nghiên cứu phát triển hoặc yêu cầu hỗ trợ giải đáp thắc mắc trước về điều kiện đối tượng mua Nhà ở xã hội, vui lòng liên hệ trực tiếp với chúng tôi qua email.</p>
-      <div class="cta-group">
+      <div class="cta-group reveal">
         <a href="mailto:lienhe@locan-socialhousing.vn" class="btn btn-primary btn-shimmer">Gửi Yêu Cầu Tư Vấn Hồ Sơ</a>
       </div>
-      <div class="contact-meta">
+      <div class="contact-meta reveal">
         <span><a href="mailto:lienhe@locan-socialhousing.vn">lienhe@locan-socialhousing.vn</a></span>
         <span>+84 (0) 251 XXX XXXX</span>
         <span>Long Thành, Đồng Nai, VN</span>
@@ -915,26 +927,20 @@
     }, 1500);
   });
 
-  // INTERSECTION OBSERVER FOR LASER GRAPHICS
-  const imageContainers = document.querySelectorAll('.cyber-img-container');
-  const imgIo = new IntersectionObserver((entries) => {
+  // INTERSECTION OBSERVER CHO TOÀN BỘ KHỐI CHỮ & HÌNH ẢNH (LƯỚT ĐẾN ĐÂU HIỆN ĐẾN ĐÓ)
+  const revealEls = document.querySelectorAll('.reveal, .cyber-img-container');
+  const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        imgIo.unobserve(entry.target);
+      if(entry.isIntersecting){ 
+        entry.target.classList.add('in-view'); 
+        io.unobserve(entry.target); 
       }
     });
-  }, { threshold: 0.1 });
-  imageContainers.forEach(container => imgIo.observe(container));
-
-  // TEXT BLOCK REVEAL
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){ entry.target.classList.add('in-view'); io.unobserve(entry.target); }
-    });
-  }, { threshold:0.15 });
-  revealEls.forEach(el=>io.observe(el));
+  }, { 
+    threshold: 0.10,
+    rootMargin: "0px 0px -40px 0px"
+  });
+  revealEls.forEach(el => io.observe(el));
 
   // STATS COUNT-UP ANIMATION
   const counters = document.querySelectorAll('.stat .num');
