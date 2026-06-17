@@ -6,21 +6,21 @@
 <title>NHÀ Ở XÃ HỘI LỘC AN — Khảo Sát Nhu Cầu &amp; Tư Vấn Điều Kiện Hồ Sơ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --mist:#f0f7f2; /* TONE NỀN XANH LÁ MINT NHẠT[cite: 1] */
+    --mist:#f0f7f2; /* TONE NỀN XANH LÁ MINT NHẠT */
     --paper:#ffffff;
     --ink:#0b1a11;
-    --forest:#0e2417; /* NỀN HERO XANH LÁ ĐẬM SÂU THẨM[cite: 1] */
-    --forest-2:#163a24; /* XANH RỪNG CÔNG NGHỆ[cite: 1] */
+    --forest:#0e2417; /* NỀN HERO XANH LÁ ĐẬM SÂU THẲM */
+    --forest-2:#163a24; /* XANH RỪNG CÔNG NGHỆ */
     --sage:#568763;
-    --clay:#10b981; /* ĐIỂM NHẤN XANH LÁ EMERALD PHÁT QUANG[cite: 1] */
+    --clay:#10b981; /* ĐIỂM NHẤN XANH LÁ EMERALD PHÁT QUANG */
     --gold:#e6f7f0;
     --mid:#4a6353;
     --line:rgba(22,58,36,0.08);
     --glass:rgba(255, 255, 255, 0.7);
-    --cyber-glow: rgba(16, 185, 129, 0.35); /* GLOW XANH LÁ CÔNG NGHỆ[cite: 1] */
+    --cyber-glow: rgba(16, 185, 129, 0.35); /* GLOW XANH LÁ CÔNG NGHỆ */
     --ease-wow:cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -35,7 +35,7 @@
     position: relative;
   }
   
-  /* ---- LƯỚI NỀN CÔNG NGHỆ CYBER MINT MATRIX[cite: 1] ---- */
+  /* ---- LƯỚI NỀN CÔNG NGHỆ CYBER MINT MATRIX ---- */
   body::before {
     content: "";
     position: fixed;
@@ -75,7 +75,7 @@
   .on-dark .eyebrow{color:var(--gold);}
   .on-dark .eyebrow::before{background:var(--gold);box-shadow: 0 0 8px var(--gold);}
 
-  /* ---------- INTRO KINETIC MINT TECH[cite: 1] ---------- */
+  /* ---------- INTRO KINETIC MINT TECH ---------- */
   #wow-preloader {
     position: fixed;
     inset: 0;
@@ -124,7 +124,7 @@
   }
   @keyframes luxuryRevealLine { 100% { width: 100%; } }
 
-  /* ---------- elevator indicator[cite: 1] ---------- */
+  /* ---------- elevator indicator ---------- */
   .elevator{
     position:fixed;
     right:32px;top:50%;
@@ -157,7 +157,7 @@
   }
   @media (max-width:980px){ .elevator{display:none;} }
 
-  /* ---------- header[cite: 1] ---------- */
+  /* ---------- header ---------- */
   header{
     position:fixed;top:0;left:0;right:0;z-index:100;
     background:rgba(240,247,242,0.75);
@@ -186,7 +186,7 @@
   }
   .nav-cta:hover{background:var(--clay);box-shadow: 0 4px 20px var(--cyber-glow);transform:translateY(-1px);color: var(--forest);}
 
-  /* ---------- hero[cite: 1] ---------- */
+  /* ---------- hero ---------- */
   .hero{
     position:relative;
     min-height:100vh;
@@ -225,18 +225,29 @@
   body.loaded .hero p.sub { opacity: 1; transform: translateY(0); transition-delay: 1.3s; }
   body.loaded .hero .cta-group { opacity: 1; transform: translateY(0); transition-delay: 1.5s; }
 
+  /* THIẾT KẾ MỚI CHO TIÊU ĐỀ CHỮ KHÔNG CHÂN HIỆN ĐẠI */
   .hero h1{
-    font-family:'Fraunces',serif;
-    font-weight:600;
-    font-size:clamp(2.4rem,6vw,4.5rem);
-    line-height:1.1;
+    font-family:'Work Sans', sans-serif;
+    font-weight:700;
+    font-size:clamp(2.4rem, 6vw, 4.2rem);
+    line-height:1.15;
     margin-top:24px;
     max-width:900px;
-    background: linear-gradient(135deg, #ffffff 40%, var(--gold) 100%);
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 30%, var(--clay) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .hero h1 em{font-style:italic;font-weight:400;color:var(--gold);}
+  .hero h1 em{
+    font-style:normal;
+    font-weight:800;
+    color:var(--clay);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--clay) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+  }
+  
   .hero p.sub{
     margin-top:28px;max-width:580px;
     color:rgba(240,247,242,0.75);
@@ -262,7 +273,7 @@
   .on-light .btn-ghost{border-color:rgba(22,58,36,0.2);color:var(--ink);}
   .on-light .btn-ghost:hover{border-color:var(--clay);color:var(--clay);background:transparent;}
 
-  /* ---------- REVEAL ON SCROLL[cite: 1] ---------- */
+  /* ---------- REVEAL ON SCROLL ---------- */
   .reveal{opacity:0;transform:translateY(35px);transition:opacity 1s var(--ease-wow),transform 1s var(--ease-wow);}
   .reveal.in-view{opacity:1;transform:translateY(0);}
 
@@ -271,7 +282,7 @@
   .sec-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.1rem,4vw,3rem);margin-top:16px;max-width:700px;line-height:1.15;color:var(--forest-2);}
   .sec-head .note{max-width:380px;color:var(--mid);font-size:.95rem;font-weight: 400;}
 
-  /* ---------- PREMIUM CONVERSION CARD (GLASSMORPHISM)[cite: 1] ---------- */
+  /* ---------- PREMIUM CONVERSION CARD (GLASSMORPHISM) ---------- */
   .survey-premium-card {
     background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(30px);
@@ -394,7 +405,7 @@
     .advantage-features-list { grid-template-columns: 1fr; }
   }
 
-  /* ---------- HIỆU ỨNG QUÉT TIA LASER XANH MINT HÌNH ẢNH[cite: 1] ---------- */
+  /* ---------- HIỆU ỨNG QUÉT TIA LASER XANH MINT HÌNH ẢNH ---------- */
   .cyber-img-container {
     position: relative;
     overflow: hidden;
@@ -425,14 +436,14 @@
     display: block;
   }
 
-  /* ---------- overview stats[cite: 1] ---------- */
+  /* ---------- overview stats ---------- */
   .stats-row{display:grid;grid-template-columns:repeat(4,1fr);background: var(--paper);border-radius: 20px;padding:40px 10px;box-shadow: 0 10px 40px rgba(22,58,36,0.02);border: 1px solid var(--line);}
   .stat{padding-inline:32px;border-left:1px solid var(--line);text-align: center;}
   .stat:first-child{border-left:none;}
   .stat .num{font-family:'Fraunces',serif;font-size:clamp(2.2rem,4.5vw,3.4rem);color:var(--clay);font-weight: 600;}
   .stat .label{margin-top:10px;color:var(--mid);font-size:.85rem;font-weight: 500;letter-spacing: 0.02em;}
 
-  /* ---------- amenities[cite: 1] ---------- */
+  /* ---------- amenities ---------- */
   .amenity-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
   .amenity{
     background:var(--paper);
@@ -454,7 +465,7 @@
   .amenity h3{font-family:'Fraunces',serif;font-size:1.3rem;margin-bottom:12px;color: var(--forest-2);}
   .amenity p{color:var(--mid);font-size:.92rem;font-weight: 400;}
 
-  /* ---------- units[cite: 1] ---------- */
+  /* ---------- units ---------- */
   .unit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
   .unit-card{
     background:var(--paper);
@@ -479,7 +490,7 @@
   .unit-card .view{color:var(--mid);font-size:.9rem;margin-top:10px;font-weight: 400;}
   .plan-note{margin-top:32px;font-size:.8rem;color:var(--mid);font-style:italic;}
 
-  /* ---------- location[cite: 1] ---------- */
+  /* ---------- location ---------- */
   .loc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:50px;}
   .loc-list li{
     display:flex;gap:20px;align-items:flex-start;
@@ -502,7 +513,7 @@
   }
   @media (max-width:980px){ .train-icon, .plane-icon{display:none;} }
 
-  /* ---------- FINAL CONTACT SECTION[cite: 1] ---------- */
+  /* ---------- FINAL CONTACT SECTION ---------- */
   .final{
     background: linear-gradient(180deg, var(--mist) 0%, #d2ebd9 150%);
     text-align:center;
@@ -513,7 +524,7 @@
   .final .cta-group{justify-content:center;margin-top:40px;}
   .contact-meta{margin-top:50px;display:flex;justify-content:center;gap:40px;font-size:.88rem;color:var(--mid);font-weight: 500;flex-wrap:wrap;}
 
-  /* ---------- footer[cite: 1] ---------- */
+  /* ---------- footer ---------- */
   footer{border-top:1px solid var(--line);padding-block:50px;background: var(--paper);}
   .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
   .foot-links{display:flex;gap:32px;font-size:.85rem;font-weight: 500;color:var(--mid);}
@@ -539,7 +550,7 @@
 </head>
 <body class="loading">
 
-<!-- HIỆU ỨNG MỞ MÀN KINETIC MINT TECH[cite: 1] -->
+<!-- HIỆU ỨNG MỞ MÀN KINETIC MINT TECH -->
 <div id="wow-preloader" aria-hidden="true">
   <div class="wow-shimmer"></div>
   <div class="wow-text-container">
@@ -583,7 +594,7 @@
     </div>
   </section>
 
-  <!-- SECTION 1: KHỐI KHẢO SÁT HIỆN ĐẠI (ĐÃ CHUẨN HÓA AN TOÀN PHÁP LÝ TUYỆT ĐỐI)[cite: 1] -->
+  <!-- SECTION 1: KHỐI KHẢO SÁT HIỆN ĐẠI (ĐÃ CHUẨN HÓA AN TOÀN PHÁP LÝ TUYỆT ĐỐI) -->
   <section id="survey-section" class="on-light" style="padding-top: 100px; background: linear-gradient(180deg, var(--mist) 0%, #dae8dc 100%);">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -796,7 +807,7 @@
 </footer>
 
 <script>
-  // QUẢN LÝ KỊCH BẢN KÍCH HOẠT INTRO MỞ MÀN KHỞI ĐỘNG[cite: 1]
+  // QUẢN LÝ KỊCH BẢN KÍCH HOẠT INTRO MỞ MÀN KHỞI ĐỘNG
   window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       document.body.classList.remove('loading');
@@ -804,7 +815,7 @@
     }, 1500);
   });
 
-  // TÍCH HỢP HIỆU ỨNG LASER TRÊN HÌNH ẢNH KHI PHÁT HIỆN CUỘN TRANG (INTERSECTION OBSERVER)[cite: 1]
+  // TÍCH HỢP HIỆU ỨNG LASER TRÊN HÌNH ẢNH KHI PHÁT HIỆN CUỘN TRANG (INTERSECTION OBSERVER)
   const imageContainers = document.querySelectorAll('.cyber-img-container');
   const imgIo = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -816,7 +827,7 @@
   }, { threshold: 0.1 });
   imageContainers.forEach(container => imgIo.observe(container));
 
-  // reveal các block text on scroll[cite: 1]
+  // reveal các block text on scroll
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
@@ -825,7 +836,7 @@
   }, { threshold:0.15 });
   revealEls.forEach(el=>io.observe(el));
 
-  // count-up stats số liệu[cite: 1]
+  // count-up stats số liệu
   const counters = document.querySelectorAll('.stat .num');
   const countIo = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
@@ -851,7 +862,7 @@
   }, { threshold:0.5 });
   counters.forEach(c=>countIo.observe(c));
 
-  // thanh elevator định vị cuộn trang[cite: 1]
+  // thanh elevator định vị cuộn trang
   const dot = document.getElementById('elevatorDot');
   const floorLabel = document.getElementById('elevatorFloor');
   function updateElevator(){
