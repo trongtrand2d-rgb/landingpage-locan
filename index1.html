@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Căn Hộ Dự Kiến 1 Phòng Ngủ — Nhà Ở Xã Hội Lộc An</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mist:#f4faf6; /* TONE NỀN XANH LÁ MINT SÁNG TƯƠI ĐỔI MỚI */
+    --paper:#ffffff;
+    --ink:#0b1a11;
+    --forest:#1b3322; /* TONE XANH RÊU SƯƠNG MÙ TINH TẾ */
+    --forest-2:#11331e; /* TONE CHỮ ĐẬM SẮC NÉT TRÊN NỀN SÁNG */
+    --sage:#417350;
+    --clay:#10b981; /* ĐIỂM NHẤN XANH LÁ EMERALD PHÁT QUANG */
+    --gold:#d1f4e6;
+    --mid:#3d5947;
+    --line:rgba(16,185,129,0.08);
+    --glass:rgba(255, 255, 255, 0.4);
+    --cyber-glow: rgba(16, 185, 129, 0.25);
+    --ease-wow:cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--mist);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: 
+      linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center;
+    pointer-events: none;
+  }
+
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(24px,6vw,60px);}
+  .eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);font-weight:600;display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:"";width:6px;height:6px;background:var(--clay);border-radius:50%;box-shadow: 0 0 8px var(--clay);}
+
+  /* FLOATING HEADER DOCK */
+  header{
+    position:fixed;top: 16px; left: 50%; transform: translateX(-50%);
+    width: calc(100% - 32px); max-width: 1120px; z-index: 1000;
+    background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(16, 185, 129, 0.15); border-radius: 30px; padding: 10px 20px;
+    box-shadow: 0 15px 35px rgba(11,26,17,0.05);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;position: relative;}
+  .logo{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--forest-2);display:flex;align-items:center;gap:6px;}
+  .logo::after{content:"";width:4px;height:4px;background:var(--clay);border-radius:50%;}
+  .btn-back{font-size:.8rem;font-weight:600;padding:10px 24px;border-radius:20px;background:var(--forest-2);color:var(--paper);transition:all .3s var(--ease-wow);}
+  .btn-back:hover{background:var(--clay);box-shadow: 0 4px 18px var(--cyber-glow);transform:translateY(-1px);}
+
+  /* DETAIL MAIN CONTENT Layout */
+  .detail-section{padding-top:160px; padding-bottom:100px;}
+  .detail-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:start;}
+  
+  .cyber-img-container {
+    position: relative; overflow: hidden; border-radius: 24px;
+    border: 1px solid var(--line); box-shadow: 0 30px 60px rgba(16,185,129,0.06);
+    background: #000;
+  }
+  .cyber-img-container::after {
+    content: ""; position: absolute; top: -10%; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, transparent, var(--clay), #ffffff, var(--clay), transparent);
+    box-shadow: 0 0 12px var(--clay), 0 0 20px var(--cyber-glow); animation: laserScan 2.5s ease-in-out infinite;
+  }
+  @keyframes laserScan { 0% { top: -5%; } 50% { top: 105%; } 100% { top: -5%; } }
+  
+  .apartment-photo{width:100%; height:520px; object-fit:cover; display:block; transition: transform 0.5s var(--ease-wow);}
+  .apartment-photo:hover{transform: scale(1.02);}
+
+  .info-side h1{font-family:'Work Sans',sans-serif; font-weight:700; font-size:2.4rem; line-height:1.2; color:var(--forest-2); margin-top:16px;}
+  .info-side .price-tag{font-size:1.4rem; color:var(--clay); font-weight:700; margin-top:8px;}
+  .info-side .desc{margin-top:20px; color:var(--mid); font-size:1.02rem; text-align: justify;}
+  
+  .specs-table{width:100%; margin-top:32px; border-collapse: collapse;}
+  .specs-table tr{border-bottom:1px solid rgba(16,185,129,0.08);}
+  .specs-table td{padding-block:14px; font-size:.95rem;}
+  .specs-table td.label{color:var(--mid); font-weight:500;}
+  .specs-table td.value{color:var(--forest-2); font-weight:600; text-align:right;}
+
+  .cta-box{margin-top:40px; background:var(--paper); padding:30px; border-radius:20px; border:1px solid rgba(16,185,129,0.12); text-align:center;}
+  .cta-box p{font-size:.9rem; color:var(--mid); margin-bottom:16px;}
+  .btn-survey{display:block; width:100%; padding:16px; background:var(--clay); color:var(--paper); font-weight:700; border-radius:12px; text-align:center; transition:all .3s var(--ease-wow); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.2);}
+  .btn-survey:hover{background:var(--forest-2); transform:translateY(-2px); box-shadow: 0 6px 20px rgba(17,51,30,0.15);}
+
+  @media (max-width:860px) {
+    .detail-grid{grid-template-columns:1fr; gap:32px;}
+    .apartment-photo{height:320px;}
+    .detail-section{padding-top:120px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO MỞ MÀN MINT TECH -->
+<div id="wow-preloader" aria-hidden="true">
+  <div class="wow-shimmer"></div>
+  <div class="wow-text-container">
+    <div class="wow-logo" style="font-size:clamp(2rem, 8vw, 4rem); letter-spacing:0.1em;">1-BEDROOM</div>
+    <div class="wow-line"></div>
+  </div>
+</div>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo">Lộc An</a>
+    <a href="index.html" class="btn-back">← Quay lại trang chủ</a>
+  </nav>
+</header>
+
+<main class="wrap detail-section">
+  <div class="detail-grid">
+    
+    <!-- KHỐI TRÌNH DIỄN HÌNH ẢNH CÓ TIA LASER QUÉT -->
+    <div class="cyber-img-container">
+      <img class="apartment-photo" src="images/7.jpg" alt="Phối cảnh thiết kế không gian căn hộ 1 phòng ngủ">
+    </div>
+    
+    <!-- KHỐI THÔNG TIN CHI TIẾT CĂN HỘ -->
+    <div class="info-side">
+      <div class="eyebrow">Ý tưởng không gian tối ưu</div>
+      <h1>Căn Hộ Thương Mại Dịch Vụ <br><span style="color:var(--clay)">1 Phòng Ngủ (Căn Hộ Mẫu)</span></h1>
+      <div class="price-tag">Diện tích: 45m² – 50m²</div>
+      <p class="desc">Thiết kế căn hộ 1 Phòng Ngủ hướng tới giải pháp tối ưu hóa từng mét vuông không gian sống. Phong cách kiến trúc mở kết hợp phòng khách, bếp và bàn ăn giúp đón trọn vẹn luồng gió trời đối lưu tự nhiên và ánh sáng ban mai ngập tràn, kiến tạo năng lượng sống tươi mới cho ngày làm việc bứt phá.</p>
+      
+      <table class="specs-table">
+        <tr>
+          <td class="label">Cơ cấu không gian</td>
+          <td class="value">1 PN | 1 WC | 1 Phòng Khách | 1 Bếp | 1 Logia</td>
+        </tr>
+        <tr>
+          <td class="label">Phân khúc định hướng</td>
+          <td class="value">Chuyên gia / Người độc thân / Cặp đôi trẻ</td>
+        </tr>
+        <tr>
+          <td class="label">Giải pháp bàn giao dự kiến</td>
+          <td class="value">Hoàn thiện cơ bản công nghệ cao</td>
+        </tr>
+        <tr>
+          <td class="label">Tầm nhìn ban công</td>
+          <td class="value">Công viên trung tâm nội khu sinh thái</td>
+        </tr>
+      </table>
+      
+      <div class="cta-box">
+        <p>Ý kiến đóng góp của bạn sẽ trực tiếp quyết định tỷ trọng xây dựng căn hộ này trong quy hoạch chi tiết 1/500 cuối cùng.</p>
+        <a href="https://forms.gle/1cuVdcMC4Y9SjgSh9" target="_blank" class="btn-survey">Đóng GópÝ Kiến Khảo Sát Căn Này</a>
+      </div>
+    </div>
+    
+  </div>
+</main>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.body.style.overflow = 'auto';
+      const preloader = document.getElementById('wow-preloader');
+      preloader.style.opacity = '0';
+      setTimeout(() => preloader.style.visibility = 'hidden', 1200);
+    }, 1200);
+  });
+</script>
+</body>
+</html>
