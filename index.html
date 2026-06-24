@@ -572,6 +572,21 @@
   }
   @media (max-width:980px){ .train-icon, .plane-icon{display:none;} }
 
+  /* ---------- OẢNH CHỨA CONTAINER PHÁT VIDEO CHUẨN ĐƯỜNG DẪN EMBED YOUTUBE ---------- */
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Giữ khung tỉ lệ chuẩn 16:9 */
+    height: 0;
+    overflow: hidden;
+  }
+  .video-container iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
   /* ---------- FINAL CONTACT SECTION ---------- */
   .final{
     background: linear-gradient(180deg, var(--mist) 0%, #cbebd4 150%);
@@ -634,6 +649,7 @@
         <li><a href="#amenities">Tiện ích xanh</a></li>
         <li><a href="#units">Mặt bằng căn hộ</a></li>
         <li><a href="#location">Vị trí kết nối</a></li>
+        <li><a href="#project-video">Video phối cảnh</a></li>
       </ul>
     </div>
     <a href="https://forms.gle/1cuVdcMC4Y9SjgSh9" target="_blank" class="nav-cta">Tham gia khảo sát</a>
@@ -778,11 +794,11 @@
       </div>
       
       <div class="unit-grid">
-        <a href="CANHO1PN.html" class="unit-card reveal">
+        <a href="index1.html" class="unit-card reveal">
           <div class="cyber-img-container">
             <img class="unit-photo" src="images/7.jpg" alt="Căn hộ mẫu 1 Phòng ngủ">
           </div>
-          <div class="type serif">Căn hộ STUDIO</div>
+          <div class="type serif">STUDIO</div>
           <div class="size">45 – 50 m²</div>
           <div class="view">Định hướng cho người độc thân / Cặp đôi</div>
         </a>
@@ -793,7 +809,7 @@
           </div>
           <div class="type serif">Căn hộ dự kiến 1 Phòng ngủ</div>
           <div class="size">60 – 70 m²</div>
-          <div class="view">Thiết kế tiêu chuẩn cho người độc thân, đôi tình nhân</div>
+          <div class="view">Thiết kế tiêu chuẩn cho gia đình nhỏ</div>
         </a>
 
         <a href="index3.html" class="unit-card reveal">
@@ -802,7 +818,7 @@
           </div>
           <div class="type serif">Căn hộ dự kiến 2 Phòng ngủ</div>
           <div class="size">75 – 85 m²</div>
-          <div class="view">Phương án tối ưu cho gia đình </div>
+          <div class="view">Căn góc, phương án tối ưu cho gia đình </div>
         </a>
       </div>
        
@@ -829,7 +845,7 @@
         <div class="loc-visual reveal">
           <div class="cyber-img-container" style="height: 520px; overflow: hidden; background: #eee;">
             <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d13182.76643793226!2d106.96797950699529!3d10.791394624140606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ3JzI1LjIiTiAxMDbCsDU4JzI3LjEiRQ!5e0!3m2!1svi!2s!4v1781756743952!5m2!1svi!2s" 
+  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d13182.76643793226!2d106.96797950699529!3d10.791394624140606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ3JzI1LjIiTiAxMDbCsDU4JzI3LjIiRQ!5e0!3m2!1svi!2s!4v1781756743952!5m2!1svi!2s" 
   width="100%" 
   height="100%" 
   style="border:0;" 
@@ -847,6 +863,38 @@
     </div>
   </section>
 
+  <!-- ---------- SECTION VIDEO PHỐI CẢNH YOUTUBE ĐÃ ĐƯỢC FIX LINK EMBED VÀO ĐÂY ---------- -->
+  <section id="project-video" class="on-light">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="reveal">
+          <div class="eyebrow">Trải nghiệm không gian kĩ thuật số</div>
+          <h2>Video Phối Cảnh & Tiến Độ Dự Kiến</h2>
+        </div>
+        <p class="note reveal">Chiêm ngưỡng thước phim toàn cảnh mô phỏng quy hoạch kiến trúc 3D, hệ thống hạ tầng liên kết vùng và không gian cảnh quan xanh tương lai.</p>
+      </div>
+      
+      <div class="cyber-img-container reveal">
+        <div class="video-container">
+          <iframe 
+            src="https://www.youtube.com/embed/03xTEEuTLXo" 
+            title="Video phối cảnh dự án Nhà ở xã hội Lộc An" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="reveal" style="text-align: center; margin-top: 24px;">
+        <a href="https://youtu.be/03xTEEuTLXo" target="_blank" class="btn btn-ghost" style="font-size: 0.8rem; padding: 10px 20px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:inline; margin-right:6px; vertical-align:middle;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Xem trực tiếp trên YouTube
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="final" id="contact">
     <div class="wrap">
       <div class="eyebrow reveal" style="justify-content:center;">Bộ Phận Đầu Tư Dự Án</div>
@@ -856,7 +904,7 @@
         <a href="mailto:lienhe@locan-socialhousing.vn" class="btn btn-primary btn-shimmer">Gửi Yêu Cầu Tư Vấn Hồ Sơ</a>
       </div>
       <div class="contact-meta reveal">
-        <span><a href="mailto:trongtran.d2d@gmail.com">trongtran.d2d@gmail.com</a></span>
+        <span><a href="mailto:lienhe@locan-socialhousing.vn">lienhe@locan-socialhousing.vn</a></span>
         <span>+84 (0) 251 XXX XXXX</span>
         <span>Long Thành, Đồng Nai, VN</span>
       </div>
@@ -874,6 +922,7 @@
         <a href="#overview">Tổng quan</a>
         <a href="#amenities">Tiện ích</a>
         <a href="#units">Ý tưởng mặt bằng</a>
+        <a href="#project-video">Video phối cảnh</a>
         <a href="mailto:lienhe@locan-socialhousing.vn">Liên hệ Email</a>
       </div>
       <div class="copyright">© 2026 Nhà ở xã hội Lộc An. All rights reserved.</div>
