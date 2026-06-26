@@ -7,17 +7,17 @@
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght=0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --mist:#f4faf6; /* TONE NỀN XANH LÁ MINT SÁNG TƯƠI ĐỔI MỚI */
+    --mist:#f4faf6;
     --paper:#ffffff;
     --ink:#0b1a11;
-    --forest:#1b3322; /* TONE XANH RÊU SƯƠNG MÙ TINH TẾ */
-    --forest-2:#11331e; /* TONE CHỮ ĐẬM SẮC NÉT TRÊN NỀN SÁNG */
+    --forest:#1b3322;
+    --forest-2:#11331e;
     --sage:#417350;
-    --clay:#10b981; /* ĐIỂM NHẤN XANH LÁ EMERALD PHÁT QUANG */
-    --gold:#d1f4e6; /* MINT GLOW SÁNG */
+    --clay:#10b981;
+    --gold:#d1f4e6;
     --mid:#3d5947;
     --line:rgba(16,185,129,0.08);
     --glass:rgba(255, 255, 255, 0.4);
@@ -36,7 +36,6 @@
     position: relative;
   }
   
-  /* ---- LƯỚI NỀN CÔNG NGHỆ CYBER MINT MATRIX SÁNG ---- */
   body::before {
     content: "";
     position: fixed;
@@ -74,7 +73,7 @@
     box-shadow: 0 0 8px var(--clay);
   }
 
-  /* ---------- INTRO KINETIC MINT TECH ---------- */
+  /* ---------- INTRO PRELOADER ---------- */
   #wow-preloader {
     position: fixed;
     inset: 0;
@@ -123,7 +122,7 @@
   }
   @keyframes luxuryRevealLine { 100% { width: 100%; } }
 
-  /* ---------- elevator indicator ---------- */
+  /* ---------- ELEVATOR INDICATOR ---------- */
   .elevator{
     position:fixed;
     right:32px;top:50%;
@@ -156,7 +155,7 @@
   }
   @media (max-width:980px){ .elevator{display:none;} }
 
-  /* ---------- FLOATING GLASS DOCK HEADER ---------- */
+  /* ---------- HEADER ---------- */
   header{
     position:fixed;
     top: 16px; left: 50%;
@@ -225,9 +224,7 @@
     transition: color .3s var(--ease-wow);
     z-index: 3;
   }
-  .nav-links li a:hover {
-    color: var(--forest-2);
-  }
+  .nav-links li a:hover { color: var(--forest-2); }
   
   .floating-pill {
     position: absolute;
@@ -254,7 +251,7 @@
   }
   .nav-cta:hover{background:var(--clay);box-shadow: 0 4px 18px var(--cyber-glow);transform:translateY(-1px);color: var(--paper);}
 
-  /* ---------- hero ---------- */
+  /* ---------- HERO ---------- */
   .hero{
     position:relative;
     min-height:100vh;
@@ -348,7 +345,7 @@
   .btn-ghost{border:1px solid rgba(17,51,30,0.2);color:var(--forest-2);}
   .btn-ghost:hover{border-color:var(--clay);color:var(--clay);background:rgba(16,185,129,0.04);transform:translateY(-2px);}
 
-  /* ---------- HIỆU ỨNG CHỮ CHẠY RA KHI CUỘN TRANG (KINETIC TEXT REVEAL) ---------- */
+  /* ---------- REVEAL ON SCROLL ---------- */
   .reveal{
     opacity: 0;
     transform: translateY(40px) scale(0.98);
@@ -364,104 +361,13 @@
   
   .sec-head h2.reveal { transition-delay: 0.1s; }
   .sec-head p.note.reveal { transition-delay: 0.2s; }
-  .survey-premium-card .reveal { transition-delay: 0.15s; }
 
   section{padding-block:120px;}
   .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:60px;flex-wrap:wrap;}
   .sec-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.1rem,4vw,3rem);margin-top:16px;max-width:700px;line-height:1.15;color:var(--forest-2);}
   .sec-head .note{max-width:380px;color:var(--mid);font-size:.95rem;font-weight: 400;}
 
-  /* ---------- PREMIUM CONVERSION CARD ---------- */
-  .survey-premium-card {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(255,255,255,0.8);
-    padding: 50px;
-    border-radius: 24px;
-    box-shadow: 0 20px 50px rgba(16,185,129,0.03);
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.5s var(--ease-wow), box-shadow 0.5s var(--ease-wow);
-  }
-  .survey-premium-card:hover {
-    border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: 0 30px 60px rgba(16,185,129,0.08);
-  }
-  
-  .survey-grid-box {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 40px;
-    align-items: center;
-  }
-  .survey-content-left h3 {
-    font-family: 'Fraunces', serif;
-    font-size: 1.8rem;
-    color: var(--forest-2);
-    margin-bottom: 16px;
-    line-height: 1.25;
-  }
-  .survey-content-left p {
-    color: var(--mid);
-    font-size: 1rem;
-    margin-bottom: 24px;
-  }
-  
-  .advantage-features-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  .adv-feature-item {
-    background: rgba(255,255,255,0.5);
-    border: 1px solid rgba(16,185,129,0.06);
-    border-radius: 12px;
-    padding: 16px;
-  }
-  .adv-feature-item strong {
-    color: var(--clay);
-    font-size: 1.1rem;
-    display: block;
-    margin-bottom: 4px;
-  }
-  .adv-feature-item p {
-    font-size: 0.85rem;
-    color: var(--mid);
-    margin: 0;
-    line-height: 1.4;
-  }
-
-  .action-container-right {
-    background: var(--paper);
-    border: 1px solid rgba(16,185,129,0.12);
-    border-radius: 16px;
-    padding: 36px 30px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(14,26,22,0.02);
-  }
-  .action-container-right p.notice-lock {
-    font-size: 0.85rem;
-    color: var(--mid);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-  .action-container-right h4 {
-    font-family: 'Fraunces', serif;
-    font-size: 1.25rem;
-    color: var(--forest-2);
-  }
-  .action-container-right .sub-note {
-    font-size: 0.85rem;
-    color: var(--mid);
-    margin-top: 14px;
-    line-height: 1.4;
-  }
-
-  /* ---------- HIỆU ỨNG LASER QUÉT HÌNH ẢNH ---------- */
+  /* ---------- LASER SCAN EFFECT ---------- */
   .cyber-img-container {
     position: relative;
     overflow: hidden;
@@ -492,14 +398,14 @@
     display: block;
   }
 
-  /* ---------- overview stats ---------- */
+  /* ---------- OVERVIEW STATS ---------- */
   .stats-row{display:grid;grid-template-columns:repeat(4,1fr);background: var(--paper);border-radius: 20px;padding:40px 10px;box-shadow: 0 10px 40px rgba(16,185,129,0.01);border: 1px solid var(--line);}
   .stat{padding-inline:32px;border-left:1px solid var(--line);text-align: center;}
   .stat:first-child{border-left:none;}
   .stat .num{font-family:'Fraunces',serif;font-size:clamp(2.2rem,4.5vw,3.4rem);color:var(--clay);font-weight: 600;}
   .stat .label{margin-top:10px;color:var(--mid);font-size:.85rem;font-weight: 500;letter-spacing: 0.02em;}
 
-  /* ---------- amenities ---------- */
+  /* ---------- AMENITIES ---------- */
   .amenity-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
   .amenity{
     background:var(--paper);
@@ -520,7 +426,7 @@
   .amenity h3{font-family:'Fraunces',serif;font-size:1.3rem;margin-bottom:12px;color: var(--forest-2);}
   .amenity p{color:var(--mid);font-size:.92rem;font-weight: 400;}
 
-  /* ---------- units ---------- */
+  /* ---------- UNITS ---------- */
   .unit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
   .unit-card{
     background:var(--paper);
@@ -546,7 +452,7 @@
   .unit-card .view{color:var(--mid);font-size:.9rem;margin-top:10px;font-weight: 400;}
   .plan-note{margin-top:32px;font-size:.8rem;color:var(--mid);font-style:italic;}
 
-  /* ---------- location ---------- */
+  /* ---------- LOCATION ---------- */
   .loc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:50px;}
   .loc-list li{
     display:flex;gap:20px;align-items:flex-start;
@@ -557,9 +463,7 @@
   .loc-list p{color:var(--mid);font-size:.98rem;}
   .loc-list p strong{color:var(--ink);font-weight: 500;}
   
-  .loc-visual {
-    position: relative;
-  }
+  .loc-visual { position: relative; }
   .loc-overlay-text{position:absolute;bottom:16px;left:16px;z-index:3;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);padding:16px 24px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.04);font-size: 0.88rem;color: var(--forest-2);font-weight: 500;}
   
   .track-line{position:absolute;left:0;right:0;bottom:24%;height:1px;background:rgba(16,185,129,0.15);z-index:1;}
@@ -572,11 +476,11 @@
   }
   @media (max-width:980px){ .train-icon, .plane-icon{display:none;} }
 
-  /* ---------- CONTAINER PHÁT VIDEO CHUẨN TỶ LỆ ---------- */
+  /* ---------- VIDEO CONTAINER ---------- */
   .video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* Giữ khung tỉ lệ chuẩn 16:9 */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
   }
@@ -587,7 +491,7 @@
     border: 0;
   }
 
-  /* ---------- STYLE KHỐI TIN TỨC CHUẨN SEO GOOGLE ---------- */
+  /* ---------- NEWS SECTION ---------- */
   .news-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -622,9 +526,7 @@
     line-height: 1.4;
     font-weight: 600;
   }
-  .news-card h3 a:hover {
-    color: var(--clay);
-  }
+  .news-card h3 a:hover { color: var(--clay); }
   .news-card p {
     color: var(--mid);
     font-size: 0.9rem;
@@ -642,9 +544,7 @@
     gap: 4px;
     transition: color 0.3s;
   }
-  .news-card:hover .news-more {
-    color: var(--forest-2);
-  }
+  .news-card:hover .news-more { color: var(--forest-2); }
 
   /* ---------- FINAL CONTACT SECTION ---------- */
   .final{
@@ -657,7 +557,90 @@
   .final .cta-group{justify-content:center;margin-top:40px;}
   .contact-meta{margin-top:50px;display:flex;justify-content:center;gap:40px;font-size:.88rem;color:var(--mid);font-weight: 500;flex-wrap:wrap;}
 
-  /* ---------- footer ---------- */
+  /* ---------- FLOATING ACTION WIDGET ---------- */
+  .floating-widget {
+    position: fixed;
+    right: 32px;
+    bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 9990;
+  }
+
+  .float-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--forest-2);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(11, 26, 17, 0.18);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    transition: all 0.35s var(--ease-wow);
+    position: relative;
+  }
+
+  .float-btn svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+  }
+
+  .float-btn::before {
+    content: attr(data-label);
+    position: absolute;
+    right: 66px;
+    top: 50%;
+    transform: translateY(-50%) translateX(15px);
+    background: var(--forest-2);
+    color: var(--paper);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s var(--ease-wow);
+    pointer-events: none;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  .float-btn:hover {
+    background-color: var(--clay);
+    color: var(--paper);
+    transform: scale(1.08) translateY(-2px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 30px var(--cyber-glow);
+  }
+
+  .float-btn:hover svg { transform: scale(1.12); }
+
+  .float-btn:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  @keyframes clay-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.65); }
+    70% { box-shadow: 0 0 0 16px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+
+  .float-btn.pulse-clay {
+    animation: clay-pulse 2s infinite;
+    background-color: var(--clay);
+  }
+  .float-btn.pulse-clay:hover { background-color: var(--forest-2); }
+
+  /* ---------- FOOTER ---------- */
   footer{border-top:1px solid var(--line);padding-block:50px;background: var(--paper);}
   .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
   .foot-links{display:flex;gap:32px;font-size:.85rem;font-weight: 500;color:var(--mid);}
@@ -674,11 +657,19 @@
     section { padding-block: 90px; }
   }
 
+  @media (max-width: 768px) {
+    .floating-widget { right: 16px; bottom: 24px; gap: 10px; }
+    .float-btn { width: 46px; height: 46px; }
+    .float-btn svg { width: 19px; height: 19px; }
+    .float-btn::before { display: none; }
+  }
+
   @media (prefers-reduced-motion: reduce){
     *{animation:none !important;transition:none !important;}
     .reveal{opacity:1;transform:none;}
     #wow-preloader { display: none; }
     .cyber-img-container::after { display: none !important; }
+    .float-btn.pulse-clay { animation: none; }
   }
 </style>
 </head>
@@ -703,7 +694,6 @@
     <div class="nav-links-wrapper">
       <div class="floating-pill" id="iosPill"></div>
       <ul class="nav-links" id="navMenu">
-        <li><a href="#survey-section">KSDK</a></li>
         <li><a href="#overview">Tổng quan</a></li>
         <li><a href="#project-video">Video phối cảnh</a></li>
         <li><a href="#amenities">Tiện ích xanh</a></li>
@@ -732,48 +722,6 @@
     </div>
   </section>
 
-  <section id="survey-section" style="padding-top: 100px; background: linear-gradient(180deg, var(--mist) 0%, #e3f4e9 100%);">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="reveal">
-          <div class="eyebrow">Nghiên cứu & Phát triển</div>
-          <h2>Đóng góp ý kiến hoàn thiện không gian sống</h2>
-        </div>
-        <p class="note reveal">Phiếu khảo sát giúp chủ đầu tư đánh giá chính xác nguyện vọng thị trường về cơ cấu căn hộ, đồng thời hỗ trợ người dân kiểm tra điều kiện mua nhà trước giai đoạn triển khai chính thức.</p>
-      </div>
-
-      <div class="survey-premium-card reveal">
-        <div class="survey-grid-box">
-          <div class="survey-content-left">
-            <h3 class="reveal">Phiếu Thẩm Định & Đánh Giá Nhu Cầu Căn Hộ Dự Kiến</h3>
-            <p class="reveal">Hồ sơ đăng ký mua Nhà ở xã hội đòi hỏi quy trình xét duyệt pháp lý chặt chẽ (đối tượng ưu tiên, thực trạng nhà ở, hạn mức thu nhập cá nhân dưới 25 triệu VND/tháng đối với người độc thân). Việc tham gia khảo sát sớm giúp bạn nắm rõ các bước chuẩn bị thủ tục hành chính nhanh chóng và chính xác nhất.</p>
-            
-            <div class="advantage-features-list">
-              <div class="adv-feature-item reveal">
-                <strong>Đón Đầu Cơ Hội An Cư</strong>
-                <p>Hiểu rõ quy trình xét duyệt thang điểm ưu tiên của cơ quan Nhà nước trước khi dự án mở cổng nhận hồ sơ chính thức.</p>
-              </div>
-              <div class="adv-feature-item reveal">
-                <strong>Tối Ưu Hóa Thiết Kế</strong>
-                <p>Ý kiến của bạn trực tiếp quyết định đến cơ cấu diện tích căn hộ mẫu từ 45m² đến 85m² trong quy hoạch chi tiết cuối cùng.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="action-container-right reveal">
-            <p class="notice-lock">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              Kết nối biểu mẫu bảo mật dữ liệu nội bộ
-            </p>
-            <h4>Hỗ trợ tư vấn pháp lý hồ sơ</h4>
-            <a href="https://forms.gle/1cuVdcMC4Y9SjgSh9" target="_blank" class="btn btn-primary btn-shimmer" style="padding: 18px 36px; font-size: 0.9rem; border-radius: 12px; width: 100%;">Tham Gia Phiếu Khảo Sát</a>
-            <p class="sub-note">* Biểu mẫu thu thập dữ liệu tự nguyện phục vụ công tác thống kê nhu cầu phát triển dự án của phòng Đầu tư.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="overview" class="on-light">
     <div class="wrap">
       <div class="sec-head">
@@ -797,7 +745,6 @@
     </div>
   </section>
 
-  <!-- ---------- SECTION VIDEO PHỐI CẢNH YOUTUBE ĐÃ ĐƯỢC CHUYỂN LÊN ĐÂY VÀ CHẠY TRỰC TIẾP ---------- -->
   <section id="project-video" class="on-light">
     <div class="wrap">
       <div class="sec-head">
@@ -955,7 +902,6 @@
     </div>
   </section>
 
-  <!-- ---------- SECTION TIN TỨC CHUẨN SEO ĐƯỢC TÍCH HỢP VÀO FILE GỐC ---------- -->
   <section id="news" class="on-light">
     <div class="wrap">
       <div class="sec-head">
@@ -967,7 +913,6 @@
       </div>
 
       <div class="news-grid">
-        <!-- Bài viết 1 -->
         <article class="news-card reveal">
           <div class="cyber-img-container">
             <img src="images/news1.jpg" alt="Hướng dẫn chuẩn bị hồ sơ hành chính mua Nhà ở xã hội Lộc An theo luật mới năm 2026" style="width:100%; height:200px; object-fit:cover; display:block;">
@@ -978,7 +923,6 @@
           <a href="tin-tuc-1.html" class="news-more">Xem chi tiết bài viết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </article>
 
-        <!-- Bài viết 2 -->
         <article class="news-card reveal">
           <div class="cyber-img-container">
             <img src="images/news2.jpg" alt="Phân tích sự bứt phá hạ tầng giao thông và trục công nghiệp Long Thành Đồng Nai" style="width:100%; height:200px; object-fit:cover; display:block;">
@@ -989,7 +933,6 @@
           <a href="tin-tuc-2.html" class="news-more">Xem chi tiết bài viết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </article>
 
-        <!-- Bài viết 3 -->
         <article class="news-card reveal">
           <div class="cyber-img-container">
             <img src="images/news3.jpg" alt="Xu hướng thiết kế căn hộ mẫu nhà ở xã hội tối ưu không gian thông minh" style="width:100%; height:200px; object-fit:cover; display:block;">
@@ -1021,12 +964,21 @@
 
 </main>
 
+<div class="floating-widget">
+  <a href="mailto:trongtran.d2d@gmail.com" class="float-btn" data-label="Gửi Email Hỗ Trợ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+  </a>
+
+  <a href="https://forms.gle/1cuVdcMC4Y9SjgSh9" target="_blank" class="float-btn pulse-clay" data-label="Tham Gia Khảo Sát">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+  </a>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="foot-row">
       <a href="#top" class="logo">Lộc An</a>
       <div class="foot-links">
-        <a href="#survey-section">Khảo sát</a>
         <a href="#overview">Tổng quan</a>
         <a href="#project-video">Video phối cảnh</a>
         <a href="#amenities">Tiện ích</a>
@@ -1041,7 +993,6 @@
 </footer>
 
 <script>
-  // DYNAMIC GLASS PILL MENU SLIDER
   document.addEventListener('DOMContentLoaded', () => {
     const menu = document.getElementById('navMenu');
     const pill = document.getElementById('iosPill');
@@ -1066,7 +1017,6 @@
       pill.style.opacity = '0';
     });
 
-    // SCROLL HEADER SQUEEZE EFFECT
     const header = document.getElementById('iosHeader');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -1077,7 +1027,6 @@
     }, { passive: true });
   });
 
-  // INTRO PRELOADER TRIGGER
   window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       document.body.classList.remove('loading');
@@ -1085,7 +1034,6 @@
     }, 1500);
   });
 
-  // INTERSECTION OBSERVER CHO TOÀN BỘ KHỐI CHỮ & HÌNH ẢNH (LƯỚT ĐẾN ĐÂU HIỆN ĐẾN ĐÓ)
   const revealEls = document.querySelectorAll('.reveal, .cyber-img-container');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1100,7 +1048,6 @@
   });
   revealEls.forEach(el => io.observe(el));
 
-  // STATS COUNT-UP ANIMATION
   const counters = document.querySelectorAll('.stat .num');
   const countIo = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
@@ -1126,7 +1073,6 @@
   }, { threshold:0.5 });
   counters.forEach(c=>countIo.observe(c));
 
-  // ELEVATOR SCROLL TRACKER
   const dot = document.getElementById('elevatorDot');
   const floorLabel = document.getElementById('elevatorFloor');
   function updateElevator(){
