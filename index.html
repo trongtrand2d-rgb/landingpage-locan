@@ -3,7 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NHÀ Ở XÃ HỘI LỘC AN — Không Gian Sống Chuẩn Mực</title>
+
+<!-- ================= TỐI ƯU HÓA SEO TỔNG THỂ ================= -->
+<title>Dự Án Nhà Ở Xã Hội Lộc An - Long Thành, Đồng Nai | Không Gian Sống Chuẩn Mực</title>
+<meta name="description" content="Dự án Nhà ở xã hội Lộc An tại Long Thành, Đồng Nai quy mô 1.111 căn hộ. Giải pháp an cư chi phí tối ưu, hỗ trợ hồ sơ người độc thân thu nhập dưới 25 triệu/tháng. Đăng ký khảo sát ngay.">
+<meta name="keywords" content="Nhà ở xã hội Lộc An, NOXH Lộc An, dự án Lộc An Long Thành, nhà ở xã hội Đồng Nai, mua nhà ở xã hội dưới 25 triệu, chung cư Lộc An">
+<meta name="author" content="Phòng Đầu tư Dự án">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nhaoxahoilocan.vn/"> <!-- Thay đổi URL này thành tên miền chính thức của dự án -->
+
+<!-- Open Graph / Facebook / Zalo (Tối ưu chia sẻ mạng xã hội) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nhaoxahoilocan.vn/">
+<meta property="og:title" content="Dự Án Nhà Ở Xã Hội Lộc An - Kế Hoạch An Cư Tại Long Thành">
+<meta property="og:description" content="Tổ hợp 1.111 căn hộ hiện đại quy hoạch đồng bộ tại Long Thành, Đồng Nai. Hỗ trợ hồ sơ người có thu nhập dưới 25 triệu/tháng theo luật mới 2026.">
+<meta property="og:image" content="images/1.jpg">
+<meta property="og:locale" content="vi_VN">
+
+<!-- Schema Markup / Cấu trúc dữ liệu JSON-LD cho dự án Bất Động Sản -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ApartmentComplex",
+  "name": "Dự án Nhà ở xã hội Lộc An",
+  "description": "Dự án Nhà ở xã hội Lộc An tọa lạc tại tâm điểm Long Thành, Đồng Nai với quy mô 4 block, 1.111 căn hộ chung cư và 108 shophouse thương mại, đem lại không gian sống chuẩn mực với chi phí tối ưu.",
+  "url": "https://nhaoxahoilocan.vn/",
+  "image": "images/1.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Long Thành",
+    "addressRegion": "Đồng Nai",
+    "addressCountry": "VN"
+  },
+  "numberOfAccommodationUnits": {
+    "@type": "QuantitativeValue",
+    "value": 1111
+  },
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Công viên trung tâm & Đường dạo bộ",
+      "value": "True"
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Tuyến phố căn hộ thương mại dịch vụ",
+      "value": "True"
+    }
+  ]
+}
+</script>
+<!-- ================= KẾT THÚC PHẦN SEO ================= -->
+
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -266,7 +317,7 @@
 
   .hero-photo{
     position:absolute;
-    inset: 0; /* Ảnh tràn lấp toàn bộ viền 100% */
+    inset: 0;
     width:100%; height:100%; object-fit:cover;
     z-index:0;
     opacity:0;
@@ -275,12 +326,11 @@
   }
   
   body.loaded .hero-photo {
-    opacity: 1; /* Hiển thị rõ nét 100% */
+    opacity: 1;
     transform: scale(1);
     transition-delay: 0.3s;
   }
 
-  /* Lớp phủ mờ dần cực mỏng (khoảng 5-15%) từ trái sang, nhạt dứt điểm ở giữa màn hình */
   .hero-overlay{
     position:absolute;inset:0;z-index:1;
     background:linear-gradient(90deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 30%, transparent 60%);
@@ -289,7 +339,6 @@
   @media (max-width: 1024px) {
     header { top: 8px; width: calc(100% - 16px); }
     .nav-links-wrapper { display: none; }
-    /* Mobile gradient từ dưới lên một chút xíu để dễ đọc chữ */
     .hero-overlay { background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.9) 100%); }
   }
 
@@ -305,7 +354,6 @@
   body.loaded .hero p.sub { opacity: 1; transform: translateY(0); transition-delay: 1.3s; }
   body.loaded .hero .cta-group { opacity: 1; transform: translateY(0); transition-delay: 1.5s; }
 
-  /* Thêm lớp viền mờ (text-shadow) trắng đằng sau chữ để dù nền có màu gì chữ vẫn nổi bật mà không cần bôi mờ ảnh */
   .hero h1{
     font-family:'Work Sans', sans-serif;
     font-weight:700;
@@ -314,71 +362,31 @@
     margin-top:24px;
     max-width:800px;
     letter-spacing: -0.02em;
-    color: var(--forest-2);
-    text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 10px rgba(255,255,255,0.9);
+    color: #fff; 
+    background: rgba(0, 128, 128, 0.4); 
+    padding: 20px 24px;
+    border-radius: 10px;
+    text-shadow: 0 0 8px rgba(0,0,0,0.6); 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   }
   .hero h1 em{
     font-style:normal;
     font-weight:800;
     color: var(--clay);
   }
-  
- .hero .reveal-text {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.2s var(--ease-wow), transform 1.2s var(--ease-wow);
-}
 
-/* Sub paragraph */
-.hero h1 {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 700;
-  font-size: clamp(2.4rem, 5.5vw, 4rem);
-  line-height: 1.15;
-  margin-top: 24px;
-  max-width: 800px;
-  letter-spacing: -0.02em;
-  color: #fff; /* chữ trắng nổi bật */
-  background: rgba(0, 128, 128, 0.4); /* teal mờ 40% */
-  padding: 20px 24px;
-  border-radius: 10px;
-  text-shadow: 0 0 8px rgba(0,0,0,0.6); /* shadow tối để chữ rõ hơn */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
+  .hero p.sub {
+    margin-top: 28px;
+    max-width: 550px;
+    color: #fff; 
+    background: linear-gradient(135deg, #008080, #004d4d); 
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 16px 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); 
+  }
 
-.hero p.sub {
-  margin-top: 28px;
-  max-width: 550px;
-  color: #fff;
-  background: rgba(0, 128, 128, 0.4); /* teal mờ 40% */
-  font-size: 1.05rem;
-  font-weight: 500;
-  padding: 16px 20px;
-  border-radius: 8px;
-  text-shadow: 0 0 6px rgba(0,0,0,0.5); /* thêm shadow tối để chữ nổi bật */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-
-.hero p.sub {
-  margin-top: 28px;
-  max-width: 550px;
-  color: #fff; /* chữ trắng nổi bật trên nền teal */
-  background: linear-gradient(135deg, #008080, #004d4d); /* gradient teal đậm hơn */
-  font-size: 1.05rem;
-  font-weight: 500;
-  padding: 16px 20px; /* khoảng cách trong */
-  border-radius: 8px; /* bo góc mềm mại */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25); /* đổ bóng để nổi bật */
-}
-
-body.loaded .hero p.sub {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 1.3s;
-}
-
-  
   .hero .eyebrow { text-shadow: 0 0 10px rgba(255,255,255,0.8); }
 
   .cta-group{margin-top:42px;display:flex;gap:20px;flex-wrap:wrap;}
@@ -695,7 +703,7 @@ body.loaded .hero p.sub {
 
   /* Nút Back to Top thiết kế thông minh */
   #btn-back-top {
-    display: none; /* Mặc định ẩn */
+    display: none; 
     opacity: 0;
     transform: translateY(20px);
     background-color: var(--paper);
@@ -783,7 +791,7 @@ body.loaded .hero p.sub {
 <main>
 
   <section class="hero" id="top">
-    <img class="hero-photo" src="images/1.jpg" alt="Phối cảnh tổng thể dự án Nhà ở xã hội Lộc An">
+    <img class="hero-photo" src="images/1.jpg" alt="Phối cảnh tổng thể dự án Nhà ở xã hội Lộc An tại Long Thành">
     
     <div class="hero-overlay"></div>
     
@@ -792,8 +800,8 @@ body.loaded .hero p.sub {
      <h1>Kế hoạch an cư chuẩn mực <span class="highlight-cost">với chi phí tối ưu</span> tại Long Thành.</h1>
       <p class="sub reveal-text">Dự án Nhà ở xã hội Lộc An đang trong giai đoạn nghiên cứu và lấy ý kiến khách hàng nhằm hoàn thiện thiết kế tối ưu nhất. Hãy tham gia khảo sát để được hỗ trợ kiểm tra điều kiện hồ sơ pháp lý sớm theo luật định mới.</p>
       <div class="cta-group reveal-text">
-        <a href="https://forms.gle/1cuVdcMC4Y9SjgSh9" target="_blank" class="btn btn-primary btn-shimmer">Đóng Góp Ý Kiến Khảo Sát</a>
-        <a href="#overview" class="btn btn-ghost">Tìm hiểu dự án</a>
+        <a href="https://forms.gle/1cuVdcMC4Y9SjgSh9" target="_blank" class="btn btn-primary btn-shimmer" title="Đóng góp ý kiến khảo sát NOXH Lộc An">Đóng Góp Ý Kiến Khảo Sát</a>
+        <a href="#overview" class="btn btn-ghost" title="Tìm hiểu chi tiết dự án">Tìm hiểu dự án</a>
       </div>
     </div>
   </section>
@@ -809,7 +817,7 @@ body.loaded .hero p.sub {
       </div>
       
       <div class="cyber-img-container reveal">
-        <img class="overview-photo" src="images/2.jpg" alt="Quy hoạch không gian kiến trúc dự án Lộc An">
+        <img class="overview-photo" src="images/2.jpg" alt="Quy hoạch không gian kiến trúc dự án Lộc An quy mô 1111 căn hộ">
       </div>
       
       <div class="stats-row reveal" style="margin-top: 60px;">
@@ -835,7 +843,7 @@ body.loaded .hero p.sub {
         <div class="video-container">
           <iframe 
             src="https://www.youtube.com/embed/03xTEEuTLXo?rel=0&modestbranding=1" 
-            title="Video phối cảnh dự án Nhà ở xã hội Lộc An" 
+            title="Video 3D phối cảnh dự án Nhà ở xã hội Lộc An" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowfullscreen
             loading="lazy">
@@ -844,7 +852,7 @@ body.loaded .hero p.sub {
       </div>
 
       <div class="reveal" style="text-align: center; margin-top: 24px;">
-        <a href="https://youtu.be/03xTEEuTLXo" target="_blank" class="btn btn-ghost" style="font-size: 0.8rem; padding: 10px 20px;">
+        <a href="https://youtu.be/03xTEEuTLXo" target="_blank" class="btn btn-ghost" style="font-size: 0.8rem; padding: 10px 20px;" title="Xem video Nhà ở xã hội Lộc An trên YouTube">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:inline; margin-right:6px; vertical-align:middle;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           Xem trực tiếp trên YouTube
         </a>
@@ -864,7 +872,7 @@ body.loaded .hero p.sub {
       <div class="amenity-grid">
         <div class="amenity reveal">
           <div class="cyber-img-container">
-            <img class="amenity-img" src="images/3.jpg" alt="Công viên cảnh quan nội khu">
+            <img class="amenity-img" src="images/3.jpg" alt="Công viên cảnh quan nội khu nhà ở xã hội">
           </div>
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21V11M12 11C12 6 8 4 4 4C4 8 6 11 12 11ZM12 11C12 6 16 4 20 4C20 8 18 11 12 11Z"/></svg>
           <h3>Công viên trung tâm & Đường dạo bộ</h3>
@@ -872,7 +880,7 @@ body.loaded .hero p.sub {
         </div>
         <div class="amenity reveal">
           <div class="cyber-img-container">
-            <img class="amenity-img" src="images/4.jpg" alt="Căn hộ thương mại dịch vụ">
+            <img class="amenity-img" src="images/4.jpg" alt="Căn hộ thương mại dịch vụ Shophouse khối đế">
           </div>
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           <h3>Tuyến phố căn hộ thương mại dịch vụ</h3>
@@ -880,7 +888,7 @@ body.loaded .hero p.sub {
         </div>
         <div class="amenity reveal">
           <div class="cyber-img-container">
-            <img class="amenity-img" src="images/5.jpg" alt="Khu vui chơi trẻ em">
+            <img class="amenity-img" src="images/5.jpg" alt="Khu vui chơi trẻ em chung cư Lộc An">
           </div>
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="6" r="2.4"/><path d="M5 21l3-7 4 2 4-2 3 7M9 13l1-5h4l1 5"/></svg>
           <h3>Khu vui chơi trẻ em & Thể thao ngoài trời</h3>
@@ -888,7 +896,7 @@ body.loaded .hero p.sub {
         </div>
         <div class="amenity reveal">
           <div class="cyber-img-container">
-            <img class="amenity-img" src="images/6.jpg" alt="Hệ thống an ninh giám sát">
+            <img class="amenity-img" src="images/6.jpg" alt="Hệ thống an ninh giám sát 24/7">
           </div>
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <h3>An ninh & Vận hành chuyên nghiệp</h3>
@@ -909,27 +917,27 @@ body.loaded .hero p.sub {
       </div>
       
       <div class="unit-grid">
-        <a href="index1.html" class="unit-card reveal">
+        <a href="index1.html" class="unit-card reveal" title="Căn hộ mẫu 1 Phòng ngủ">
           <div class="cyber-img-container">
-            <img class="unit-photo" src="images/7.jpg" alt="Căn hộ mẫu 1 Phòng ngủ">
+            <img class="unit-photo" src="images/7.jpg" alt="Mặt bằng thiết kế căn hộ Studio">
           </div>
           <div class="type serif">STUDIO</div>
           <div class="size">45 – 50 m²</div>
           <div class="view">Định hướng cho người độc thân / Cặp đôi</div>
         </a>
 
-        <a href="index2.html" class="unit-card reveal">
+        <a href="index2.html" class="unit-card reveal" title="Căn hộ mẫu 1 Phòng ngủ +">
           <div class="cyber-img-container">
-            <img class="unit-photo" src="images/8.jpg" alt="Căn hộ mẫu 2 Phòng ngủ">
+            <img class="unit-photo" src="images/8.jpg" alt="Mặt bằng căn hộ 1 phòng ngủ Lộc An">
           </div>
           <div class="type serif">Căn hộ dự kiến 1 Phòng ngủ</div>
           <div class="size">60 – 70 m²</div>
           <div class="view">Thiết kế tiêu chuẩn cho gia đình nhỏ</div>
         </a>
 
-        <a href="index3.html" class="unit-card reveal">
+        <a href="index3.html" class="unit-card reveal" title="Căn hộ mẫu 2 Phòng ngủ">
           <div class="cyber-img-container">
-            <img class="unit-photo" src="images/9.jpg" alt="Căn hộ mẫu 3 Phòng ngủ">
+            <img class="unit-photo" src="images/9.jpg" alt="Mặt bằng căn hộ 2 phòng ngủ Lộc An">
           </div>
           <div class="type serif">Căn hộ dự kiến 2 Phòng ngủ</div>
           <div class="size">75 – 85 m²</div>
@@ -966,7 +974,8 @@ body.loaded .hero p.sub {
               style="border:0;" 
               allowfullscreen="" 
               loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Bản đồ vị trí dự án Nhà ở xã hội Lộc An">
             </iframe>
           </div>
           <div class="track-line"></div>
@@ -1001,9 +1010,9 @@ body.loaded .hero p.sub {
             <img src="images/news1.jpg" alt="Hướng dẫn chuẩn bị hồ sơ hành chính mua Nhà ở xã hội Lộc An theo luật mới năm 2026" style="width:100%; height:200px; object-fit:cover; display:block;">
           </div>
           <div class="news-date">24 Tháng 06, 2026 — PHÁP LÝ</div>
-          <h3><a href="tin-tuc-1.html">Hướng dẫn quy trình chuẩn bị hồ sơ mua Nhà ở xã hội Lộc An theo luật mới</a></h3>
+          <h3><a href="tin-tuc-1.html" title="Hướng dẫn quy trình hồ sơ">Hướng dẫn quy trình chuẩn bị hồ sơ mua Nhà ở xã hội Lộc An theo luật mới</a></h3>
           <p>Chi tiết các bước thẩm định điều kiện thu nhập cá nhân dưới 25 triệu VND/tháng, thực trạng nhà ở và thang điểm ưu tiên xét duyệt căn hộ mà người dân cần biết trước khi nộp hồ sơ hành chính.</p>
-          <a href="tin-tuc-1.html" class="news-more">Xem chi tiết bài viết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="tin-tuc-1.html" class="news-more" title="Đọc bài viết">Xem chi tiết bài viết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </article>
 
         <article class="news-card reveal">
@@ -1011,9 +1020,9 @@ body.loaded .hero p.sub {
             <img src="images/news2.jpg" alt="Phân tích sự bứt phá hạ tầng giao thông và trục công nghiệp Long Thành Đồng Nai" style="width:100%; height:200px; object-fit:cover; display:block;">
           </div>
           <div class="news-date">18 Tháng 06, 2026 — ĐÔ THỊ</div>
-          <h3><a href="tin-tuc-2.html">Hạ tầng Long Thành bứt phá: Đòn bẩy định hình trục đô thị công nghiệp mới</a></h3>
+          <h3><a href="tin-tuc-2.html" title="Đòn bẩy định hình trục đô thị">Hạ tầng Long Thành bứt phá: Đòn bẩy định hình trục đô thị công nghiệp mới</a></h3>
           <p>Phân tích tầm ảnh hưởng trực tiếp từ tiến độ vận hành Sân bay Quốc tế Long Thành và các tuyến cao tốc huyết mạch đến làn sóng dịch chuyển an cư của lực lượng lao động tri thức cao.</p>
-          <a href="tin-tuc-2.html" class="news-more">Xem chi tiết bài viết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="tin-tuc-2.html" class="news-more" title="Đọc bài viết">Xem chi tiết bài viết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </article>
 
         <article class="news-card reveal">
@@ -1021,9 +1030,9 @@ body.loaded .hero p.sub {
             <img src="images/news3.jpg" alt="Xu hướng thiết kế căn hộ mẫu nhà ở xã hội tối ưu không gian thông minh" style="width:100%; height:200px; object-fit:cover; display:block;">
           </div>
           <div class="news-date">10 Tháng 06, 2026 — THIẾT KẾ</div>
-          <h3><a href="tin-tuc-3.html">Xu hướng thiết kế căn hộ thông minh tối ưu không gian cho gia đình trẻ</a></h3>
+          <h3><a href="tin-tuc-3.html" title="Xu hướng thiết kế căn hộ">Xu hướng thiết kế căn hộ thông minh tối ưu không gian cho gia đình trẻ</a></h3>
           <p>Khám phá giải pháp kiến trúc lấy gió và ánh sáng tự nhiên trên từng mét vuông, đáp ứng hoàn hảo tiêu chí căn hộ giá thành tối ưu nhưng chất lượng chuẩn mực.</p>
-          <a href="tin-tuc-3.html" class="news-more">Xem chi tiết bài viết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="tin-tuc-3.html" class="news-more" title="Đọc bài viết">Xem chi tiết bài viết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </article>
       </div>
     </div>
@@ -1035,10 +1044,10 @@ body.loaded .hero p.sub {
       <h2 class="reveal">Tìm hiểu quy trình và chuẩn bị điều kiện hồ sơ sớm.</h2>
       <p class="reveal">Mọi đóng góp ý kiến nghiên cứu phát triển hoặc yêu cầu hỗ trợ giải đáp thắc mắc trước về điều kiện đối tượng mua Nhà ở xã hội, vui lòng liên hệ trực tiếp với chúng tôi qua email.</p>
       <div class="cta-group reveal">
-        <a href="mailto:trongtran.d2d@gmail.com" class="btn btn-primary btn-shimmer">Gửi mail hỗ trợ</a>
+        <a href="mailto:trongtran.d2d@gmail.com" class="btn btn-primary btn-shimmer" title="Gửi mail hỗ trợ dự án">Gửi mail hỗ trợ</a>
       </div>
       <div class="contact-meta reveal">
-        <span><a href="mailto:trongtran.d2d@gmail.com">trongtran.d2d@gmail.com</a></span>
+        <span><a href="mailto:trongtran.d2d@gmail.com" title="Email liên hệ dự án">trongtran.d2d@gmail.com</a></span>
         <span>+84 (0) 251 XXX XXXX</span>
         <span>Long Thành, Đồng Nai, VN</span>
       </div>
