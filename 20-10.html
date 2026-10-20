@@ -88,7 +88,7 @@
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: radial-gradient(circle at center, rgba(35, 12, 42, 0.92) 0%, rgba(10, 3, 14, 0.98) 100%);
+      background: radial-gradient(circle at center, rgba(35, 12, 42, 0.94) 0%, rgba(10, 3, 14, 0.99) 100%);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       display: flex;
@@ -165,28 +165,58 @@
       box-shadow: 0 14px 35px rgba(255, 77, 141, 0.7);
     }
 
-    /* Top HintPill */
-    .hint-pill {
+    /* Top Bar */
+    .top-bar {
       position: fixed;
       top: 14px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 12;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+      width: 92vw;
+    }
+
+    .hint-pill {
       background: rgba(20, 8, 24, 0.55);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 192, 220, 0.22);
-      padding: 6px 16px;
+      padding: 5px 15px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      color: #ffd6e7;
+    }
+
+    .music-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(255, 77, 141, 0.3), rgba(45, 14, 54, 0.75));
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 182, 213, 0.4);
+      padding: 4px 14px;
       border-radius: 999px;
       font-size: 0.78rem;
-      color: #ffd6e7;
-      pointer-events: none;
-      white-space: nowrap;
+      color: #fff;
+    }
+
+    .disc-icon {
+      display: inline-block;
+    }
+    .disc-icon.spinning {
+      animation: spinDisc 4s linear infinite;
+    }
+    @keyframes spinDisc {
+      100% { transform: rotate(360deg); }
     }
 
     /* Center Greeting Card */
     .card-wrapper {
       position: fixed;
-      top: 44%;
+      top: 47%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 10;
@@ -359,39 +389,10 @@
       border-color: rgba(255, 220, 235, 0.5);
     }
 
-    /* ZingMP3 Floating Player Box */
-    .zing-player-box {
-      position: fixed;
-      bottom: 68px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 16;
-      width: min(94vw, 420px);
-      height: 90px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 182, 213, 0.35);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
-      background: rgba(20, 8, 24, 0.85);
-      transition: all 0.4s ease;
-    }
-
-    .zing-player-box.hidden-player {
-      opacity: 0;
-      transform: translate(-50%, 20px) scale(0.9);
-      pointer-events: none;
-    }
-
-    .zing-player-box iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
     /* Bottom Dock Controls */
     .dock {
       position: fixed;
-      bottom: 14px;
+      bottom: 16px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 15;
@@ -433,22 +434,19 @@
     }
 
     @media (max-width: 520px) {
-      .card-wrapper {
-        top: 41%;
-      }
       .greeting-card {
         padding: 18px 15px 16px;
       }
-      .zing-player-box {
-        bottom: 58px;
-        height: 82px;
+      .dock {
+        bottom: 10px;
+        padding: 6px 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Màn hình mở đầu để kích hoạt nhạc ngay khi bấm -->
+  <!-- Màn hình mở phong bì -->
   <div class="open-overlay" id="openOverlay">
     <div class="envelope-box">
       <div class="envelope-icon">💌</div>
@@ -467,10 +465,16 @@
   <div class="ambient-glow aura-2"></div>
   <div class="ambient-glow aura-3"></div>
 
-  <div class="hint-pill">✨ Chạm hoặc kéo chuột trên màn hình để gieo thêm hoa nở ✨</div>
+  <div class="top-bar">
+    <div class="hint-pill">✨ Chạm hoặc kéo chuột trên màn hình để gieo thêm hoa nở ✨</div>
+    <div class="music-pill">
+      <span class="disc-icon" id="discIcon">💿</span>
+      <span id="songTitleDisplay">Đang phát: Hạnh phúc cho mỗi người</span>
+    </div>
+  </div>
 
-  <!-- Phát tự động nếu bạn có để sẵn file hanh-phuc-cho-moi-nguoi.mp3 cùng thư mục -->
-  <audio id="bgAudio" src="hanh-phuc-cho-moi-nguoi.mp3" preload="auto" loop></audio>
+  <!-- Trỏ trực tiếp tới file A.mp3 trên GitHub của bạn -->
+  <audio id="bgAudio" src="A.mp3" preload="auto" loop></audio>
 
   <div class="card-wrapper" id="cardWrapper">
     <div class="greeting-card">
@@ -500,20 +504,11 @@
     </div>
   </div>
 
-  <!-- Khung nhúng bài Hạnh Phúc Cho Mỗi Người từ ZingMP3 (ID: SErsisNOpRTv) -->
-  <div class="zing-player-box" id="zingPlayerBox">
-    <iframe
-      id="zingIframe"
-      allow="autoplay; encrypted-media"
-      src="about:blank">
-    </iframe>
-  </div>
-
   <div class="dock">
     <button class="dock-btn" id="btnToggleCard">💌 Ẩn / Hiện Thiệp</button>
     <button class="dock-btn" id="btnPalette">🎨 Đổi Sắc Hoa: <span id="paletteName">Đa Sắc</span></button>
     <button class="dock-btn" id="btnBloomWave">🌸 Nở Rộ Hàng Loạt</button>
-    <button class="dock-btn active" id="btnToggleZing">🎵 Ẩn / Hiện Khung Nhạc Zing</button>
+    <button class="dock-btn active" id="btnMusic">🎵 Nhạc: Bật</button>
   </div>
 
   <canvas id="gardenCanvas"></canvas>
@@ -1000,21 +995,45 @@
     const paletteNameEl = document.getElementById('paletteName');
     const openOverlay = document.getElementById('openOverlay');
     const btnOpenGift = document.getElementById('btnOpenGift');
-    const zingIframe = document.getElementById('zingIframe');
-    const zingPlayerBox = document.getElementById('zingPlayerBox');
-    const btnToggleZing = document.getElementById('btnToggleZing');
     const bgAudio = document.getElementById('bgAudio');
+    const btnMusic = document.getElementById('btnMusic');
+    const discIcon = document.getElementById('discIcon');
 
-    // Khi bấm nút "Mở Thiệp & Phát Nhạc"
+    let musicPlaying = false;
+
+    // Khi người nhận bấm nút mở thiệp
     btnOpenGift.addEventListener('click', () => {
       openOverlay.classList.add('hidden');
       triggerBloomWave();
 
-      // 1. Nạp trình phát ZingMP3 của bài Hạnh Phúc Cho Mỗi Người (ID: SErsisNOpRTv) với start=true
-      zingIframe.src = "https://zingmp3.vn/embed/song/SErsisNOpRTv?start=true";
+      // Kích hoạt phát file A.mp3
+      bgAudio.play().then(() => {
+        musicPlaying = true;
+        btnMusic.textContent = '🎵 Nhạc: Bật';
+        btnMusic.classList.add('active');
+        discIcon.classList.add('spinning');
+      }).catch(() => {
+        musicPlaying = false;
+        btnMusic.textContent = '🎵 Nhạc: Tắt';
+      });
+    });
 
-      // 2. Nếu có file hanh-phuc-cho-moi-nguoi.mp3 cùng thư mục thì phát luôn
-      bgAudio.play().catch(() => {});
+    // Nút Bật/Tắt nhạc dưới thanh dock
+    btnMusic.addEventListener('click', () => {
+      if (musicPlaying) {
+        bgAudio.pause();
+        musicPlaying = false;
+        btnMusic.textContent = '🎵 Nhạc: Tắt';
+        btnMusic.classList.remove('active');
+        discIcon.classList.remove('spinning');
+      } else {
+        bgAudio.play().then(() => {
+          musicPlaying = true;
+          btnMusic.textContent = '🎵 Nhạc: Bật';
+          btnMusic.classList.add('active');
+          discIcon.classList.add('spinning');
+        }).catch(() => {});
+      }
     });
 
     document.getElementById('btnBurstCard').addEventListener('click', triggerBloomWave);
@@ -1030,11 +1049,6 @@
       currentPaletteIndex = (currentPaletteIndex + 1) % palettes.length;
       paletteNameEl.textContent = palettes[currentPaletteIndex].name;
       triggerBloomWave();
-    });
-
-    btnToggleZing.addEventListener('click', () => {
-      zingPlayerBox.classList.toggle('hidden-player');
-      btnToggleZing.classList.toggle('active');
     });
   </script>
 </body>
