@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10 🌸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink-primary: #ff4d8d;
+      --pink-soft: #ff85b3;
+      --pink-glow: rgba(255, 77, 141, 0.45);
+      --gold: #ffd166;
+      --glass-bg: rgba(25, 10, 28, 0.62);
+      --glass-border: rgba(255, 192, 220, 0.28);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 25%, #2b0f30 0%, #14071a 55%, #07020a 100%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #fff;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    /* Ambient glowing aura */
+    .ambient-glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+      animation: floatAura 12s ease-in-out infinite alternate;
+    }
+    .aura-1 {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, #ff3377, transparent 70%);
+      top: 8%;
+      left: 15%;
+    }
+    .aura-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #a833ff, transparent 70%);
+      bottom: 10%;
+      right: 12%;
+      animation-delay: -5s;
+    }
+    .aura-3 {
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, #ffb703, transparent 70%);
+      top: 35%;
+      right: 30%;
+      opacity: 0.25;
+      animation-delay: -8s;
+    }
+
+    @keyframes floatAura {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(35px, -30px) scale(1.15); }
+    }
+
+    /* Top Hint & Now Playing Pill */
+    .top-bar {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 12;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+      width: 92vw;
+    }
+
+    .hint-pill {
+      background: rgba(20, 8, 24, 0.55);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 192, 220, 0.22);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      color: #ffd6e7;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .music-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(255, 77, 141, 0.28), rgba(45, 14, 54, 0.75));
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 182, 213, 0.4);
+      padding: 5px 15px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(255, 77, 141, 0.25);
+    }
+
+    .disc-icon {
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .disc-icon.spinning {
+      animation: spinDisc 4s linear infinite;
+    }
+
+    @keyframes spinDisc {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Center Greeting Card */
+    .card-wrapper {
+      position: fixed;
+      top: 49%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      width: min(92vw, 600px);
+      pointer-events: auto;
+      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .card-wrapper.minimized {
+      top: 22px;
+      transform: translate(-50%, 0) scale(0.82);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .greeting-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 30px 32px 26px;
+      text-align: center;
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.55),
+        0 0 40px rgba(255, 77, 141, 0.22),
+        inset 0 1px 1px rgba(255, 255, 255, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .greeting-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(255, 133, 179, 0.14) 60deg,
+        transparent 120deg,
+        rgba(255, 209, 102, 0.12) 240deg,
+        transparent 300deg
+      );
+      animation: rotateShimmer 18s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes rotateShimmer {
+      100% { transform: rotate(360deg); }
+    }
+
+    .badge-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255, 77, 141, 0.28), rgba(255, 183, 3, 0.22));
+      border: 1px solid rgba(255, 194, 219, 0.4);
+      color: #ffe3ee;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 15px rgba(255, 77, 141, 0.25);
+    }
+
+    .title-main {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.1rem, 5vw, 3.1rem);
+      line-height: 1.18;
+      background: linear-gradient(120deg, #fff 0%, #ffb3d1 35%, #ffd166 70%, #ff7aa8 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shineText 5s linear infinite;
+      margin-bottom: 4px;
+      filter: drop-shadow(0 4px 12px rgba(255, 77, 141, 0.3));
+    }
+
+    @keyframes shineText {
+      to { background-position: 200% center; }
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 8px auto 14px;
+      width: 75%;
+    }
+    .divider span.line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 182, 213, 0.6), transparent);
+    }
+    .divider span.flower-icon {
+      color: #ff9ebb;
+      font-size: 1.1rem;
+      animation: pulseIcon 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulseIcon {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.25) rotate(15deg); }
+    }
+
+    .wish-text {
+      font-size: clamp(0.9rem, 2.05vw, 1rem);
+      line-height: 1.7;
+      color: rgba(255, 240, 246, 0.95);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .wish-text p {
+      margin-bottom: 9px;
+    }
+
+    .wish-greeting {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.15rem, 2.5vw, 1.32rem);
+      color: #ffd6e7;
+      font-weight: 600;
+      margin-bottom: 10px !important;
+    }
+
+    .wish-highlight {
+      display: inline-block;
+      margin-top: 6px;
+      font-weight: 700;
+      font-size: clamp(0.98rem, 2.3vw, 1.12rem);
+      letter-spacing: 1px;
+      background: linear-gradient(120deg, #ffd166 0%, #ffb3d1 50%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 10px rgba(255, 209, 102, 0.35));
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn {
+      border: 1px solid rgba(255, 192, 220, 0.35);
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn:hover {
+      background: rgba(255, 77, 141, 0.35);
+      border-color: #ff85b3;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 77, 141, 0.35);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff4d8d, #d62872);
+      border-color: rgba(255, 220, 235, 0.5);
+      box-shadow: 0 6px 20px rgba(255, 77, 141, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #ff639b, #e8317e);
+    }
+
+    /* Bottom Dock Controls */
+    .dock {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      background: rgba(20, 8, 24, 0.68);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 182, 213, 0.28);
+      border-radius: 999px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 96vw;
+    }
+
+    .dock-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 192, 220, 0.22);
+      color: #ffe8f2;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .dock-btn:hover, .dock-btn.active {
+      background: linear-gradient(135deg, rgba(255, 77, 141, 0.6), rgba(181, 23, 158, 0.6));
+      border-color: #ff9ebb;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(255, 77, 141, 0.35);
+    }
+
+    @media (max-width: 520px) {
+      .greeting-card {
+        padding: 20px 16px 18px;
+      }
+      .dock {
+        bottom: 10px;
+        padding: 7px 9px;
+        gap: 5px;
+      }
+      .dock-btn {
+        padding: 6px 10px;
+        font-size: 0.74rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow aura-1"></div>
+  <div class="ambient-glow aura-2"></div>
+  <div class="ambient-glow aura-3"></div>
+
+  <div class="top-bar">
+    <div class="hint-pill">✨ Chạm hoặc kéo chuột trên màn hình để gieo thêm hoa nở ✨</div>
+    <div class="music-pill">
+      <span class="disc-icon" id="discIcon">💿</span>
+      <span id="songTitleDisplay">Bài hát: Hạnh phúc cho mỗi người</span>
+    </div>
+  </div>
+
+  <!-- Trình phát nhạc tìm file hanh-phuc-cho-moi-nguoi.mp3 cùng thư mục -->
+  <audio id="bgAudio" src="hanh-phuc-cho-moi-nguoi.mp3" preload="auto" loop></audio>
+  <input type="file" id="audioFileInput" accept="audio/*" style="display: none;" />
+
+  <div class="card-wrapper" id="cardWrapper">
+    <div class="greeting-card">
+      <div class="badge-date">🌸 Happy Vietnamese Women's Day • 20/10 🌸</div>
+      <h1 class="title-main">Chúc Mừng Ngày 20 - 10</h1>
+
+      <div class="divider">
+        <span class="line"></span>
+        <span class="flower-icon">🌷</span>
+        <span class="line"></span>
+      </div>
+
+      <div class="wish-text" id="wishText">
+        <p class="wish-greeting">Gửi đến cô gái xinh đẹp đang đọc thư.</p>
+        <p>Chúc bạn có một ngày 20/10 thật bình yên - nơi có nụ cười, hoa, và cả những lời yêu thương ngọt ngào nhất.</p>
+        <p>Chúc bạn luôn là chính mình, luôn đủ mạnh mẽ để bước qua mọi giông bão, và vẫn dịu dàng như những ngày đầu.</p>
+        <p>Dù thế giới có ồn ào, mong bạn vẫn giữ được trái tim trong trẻo, niềm tin vẹn nguyên và sự tự tin rằng:</p>
+        <div class="wish-highlight">
+          BẠN XỨNG ĐÁNG VỚI NHỮNG ĐIỀU<br>TỐT ĐẸP NHẤT.
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="btn btn-primary" id="btnBurstCard">💐 Bung hoa rực rỡ</button>
+        <button class="btn" id="btnHideCard">🌿 Ngắm toàn cảnh hoa</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dock">
+    <button class="dock-btn" id="btnToggleCard">💌 Ẩn / Hiện Thiệp</button>
+    <button class="dock-btn" id="btnPalette">🎨 Đổi Sắc Hoa: <span id="paletteName">Đa Sắc</span></button>
+    <button class="dock-btn" id="btnBloomWave">🌸 Nở Rộ Hàng Loạt</button>
+    <button class="dock-btn" id="btnMusic">🎵 Phát: Hạnh phúc cho mỗi người</button>
+    <button class="dock-btn" id="btnPickAudio" title="Chọn file nhạc MP3 từ máy">📂 Chọn file MP3</button>
+  </div>
+
+  <canvas id="gardenCanvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gardenCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let W = window.innerWidth;
+    let H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+
+    window.addEventListener('resize', () => {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width = W;
+      canvas.height = H;
+    });
+
+    // Color Palettes
+    const palettes = [
+      {
+        name: "Đa Sắc",
+        hues: [335, 350, 315, 285, 25, 45, 195]
+      },
+      {
+        name: "Hồng Nhung",
+        hues: [335, 342, 350, 358, 328]
+      },
+      {
+        name: "Sen Thanh Tao",
+        hues: [325, 338, 45, 52, 310]
+      },
+      {
+        name: "Tím Mộng Mơ",
+        hues: [270, 285, 300, 318, 255]
+      }
+    ];
+    let currentPaletteIndex = 0;
+
+    function randomHue() {
+      const list = palettes[currentPaletteIndex].hues;
+      const base = list[Math.floor(Math.random() * list.length)];
+      return base + (Math.random() * 14 - 7);
+    }
+
+    const stemmedFlowers = [];
+    const floatingBlooms = [];
+    const fallingPetals = [];
+    const sparkles = [];
+
+    const MAX_STEMMED = 26;
+    const MAX_FLOATING = 30;
+
+    // 1. Stemmed Flower
+    class StemFlower {
+      constructor(targetX, targetY) {
+        this.startX = targetX !== undefined ? targetX + (Math.random() * 80 - 40) : Math.random() * W;
+        this.startY = H + 20;
+        this.targetX = targetX !== undefined ? targetX : this.startX + (Math.random() * 140 - 70);
+        this.targetY = targetY !== undefined ? targetY : H * (0.28 + Math.random() * 0.54);
+
+        this.cpX = (this.startX + this.targetX) / 2 + (Math.random() * 120 - 60);
+        this.cpY = (this.startY + this.targetY) / 2;
+
+        this.stemProgress = 0;
+        this.stemSpeed = 0.012 + Math.random() * 0.012;
+
+        this.bloomProgress = 0;
+        this.bloomSpeed = 0.014 + Math.random() * 0.01;
+
+        this.hue = randomHue();
+        this.petalCount = [6, 8, 10, 12][Math.floor(Math.random() * 4)];
+        this.layers = 3;
+        this.maxRadius = 28 + Math.random() * 30;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotSpeed = (Math.random() - 0.5) * 0.004;
+
+        this.swayPhase = Math.random() * Math.PI * 2;
+        this.swaySpeed = 0.015 + Math.random() * 0.015;
+        this.swayAmp = 8 + Math.random() * 12;
+
+        this.lifeState = 'growing';
+        this.aliveTimer = 0;
+        this.maxAliveTime = 260 + Math.random() * 220;
+        this.alpha = 1;
+
+        this.leaves = [
+          { t: 0.35 + Math.random() * 0.1, dir: -1, size: 14 + Math.random() * 10 },
+          { t: 0.6 + Math.random() * 0.12, dir: 1, size: 14 + Math.random() * 10 }
+        ];
+      }
+
+      getPointOnStem(t, swayOffset) {
+        const inv = 1 - t;
+        const x = inv * inv * this.startX + 2 * inv * t * (this.cpX + swayOffset * 0.5) + t * t * (this.targetX + swayOffset);
+        const y = inv * inv * this.startY + 2 * inv * t * this.cpY + t * t * this.targetY;
+        return { x, y };
+      }
+
+      update() {
+        this.swayPhase += this.swaySpeed;
+        this.rotation += this.rotSpeed;
+
+        if (this.lifeState === 'growing') {
+          this.stemProgress += this.stemSpeed;
+          if (this.stemProgress >= 1) {
+            this.stemProgress = 1;
+            this.lifeState = 'blooming';
+            spawnSparkleBurst(this.targetX, this.targetY, this.hue, 12);
+          }
+        } else if (this.lifeState === 'blooming') {
+          this.bloomProgress += this.bloomSpeed;
+          if (this.bloomProgress >= 1) {
+            this.bloomProgress = 1;
+            this.lifeState = 'alive';
+          }
+        } else if (this.lifeState === 'alive') {
+          this.aliveTimer++;
+          if (this.aliveTimer >= this.maxAliveTime) {
+            this.lifeState = 'fading';
+          }
+        } else if (this.lifeState === 'fading') {
+          this.alpha -= 0.012;
+        }
+      }
+
+      draw(ctx) {
+        if (this.alpha <= 0) return;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+
+        const sway = Math.sin(this.swayPhase) * this.swayAmp * this.stemProgress;
+
+        ctx.beginPath();
+        ctx.moveTo(this.startX, this.startY);
+        const steps = 20;
+        const maxStep = Math.max(1, Math.floor(steps * this.stemProgress));
+        for (let i = 1; i <= maxStep; i++) {
+          const t = (i / steps);
+          const pt = this.getPointOnStem(t, sway);
+          ctx.lineTo(pt.x, pt.y);
+        }
+        const stemGrad = ctx.createLinearGradient(this.startX, this.startY, this.targetX, this.targetY);
+        stemGrad.addColorStop(0, '#133c26');
+        stemGrad.addColorStop(1, '#4cd97b');
+        ctx.strokeStyle = stemGrad;
+        ctx.lineWidth = 3.2;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        this.leaves.forEach(leaf => {
+          if (this.stemProgress > leaf.t) {
+            const growth = Math.min(1, (this.stemProgress - leaf.t) * 4);
+            const pt = this.getPointOnStem(leaf.t, sway);
+            ctx.save();
+            ctx.translate(pt.x, pt.y);
+            ctx.rotate(leaf.dir * 0.65 + Math.sin(this.swayPhase) * 0.08);
+            ctx.scale(growth, growth);
+
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.quadraticCurveTo(leaf.dir * leaf.size * 0.8, -leaf.size * 0.6, leaf.dir * leaf.size * 1.4, -leaf.size * 0.1);
+            ctx.quadraticCurveTo(leaf.dir * leaf.size * 0.7, leaf.size * 0.5, 0, 0);
+            ctx.fillStyle = '#38b868';
+            ctx.fill();
+            ctx.restore();
+          }
+        });
+
+        const tip = this.getPointOnStem(this.stemProgress, sway);
+        if (this.stemProgress > 0.85) {
+          const headScale = Math.max(0.08, easeOutBack(this.bloomProgress));
+          drawMultiLayerFlower(
+            ctx,
+            tip.x,
+            tip.y,
+            this.maxRadius * headScale,
+            this.petalCount,
+            this.layers,
+            this.hue,
+            this.rotation + sway * 0.01
+          );
+        }
+
+        ctx.restore();
+      }
+    }
+
+    // 2. Floating Bloom
+    class FloatingBloom {
+      constructor(x, y, customRadius) {
+        this.x = x !== undefined ? x : Math.random() * W;
+        this.y = y !== undefined ? y : Math.random() * H;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = -0.25 - Math.random() * 0.35;
+
+        this.hue = randomHue();
+        this.petalCount = [5, 6, 8, 10][Math.floor(Math.random() * 4)];
+        this.layers = 3;
+        this.maxRadius = customRadius || (22 + Math.random() * 28);
+
+        this.progress = 0;
+        this.bloomSpeed = 0.016 + Math.random() * 0.014;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotSpeed = (Math.random() - 0.5) * 0.008;
+
+        this.state = 'blooming';
+        this.holdTimer = 0;
+        this.maxHold = 150 + Math.random() * 160;
+        this.alpha = 1;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.rotation += this.rotSpeed;
+
+        if (this.state === 'blooming') {
+          this.progress += this.bloomSpeed;
+          if (this.progress >= 1) {
+            this.progress = 1;
+            this.state = 'holding';
+          }
+        } else if (this.state === 'holding') {
+          this.holdTimer++;
+          if (this.holdTimer >= this.maxHold) {
+            this.state = 'fading';
+          }
+        } else if (this.state === 'fading') {
+          this.alpha -= 0.014;
+        }
+      }
+
+      draw(ctx) {
+        if (this.alpha <= 0) return;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        const r = this.maxRadius * easeOutBack(this.progress);
+        drawMultiLayerFlower(ctx, this.x, this.y, r, this.petalCount, this.layers, this.hue, this.rotation);
+        ctx.restore();
+      }
+    }
+
+    function drawMultiLayerFlower(ctx, x, y, radius, petals, layers, hue, baseRot) {
+      if (radius <= 0.5) return;
+      ctx.save();
+      ctx.translate(x, y);
+
+      const glow = ctx.createRadialGradient(0, 0, radius * 0.1, 0, 0, radius * 1.45);
+      glow.addColorStop(0, `hsla(${hue}, 95%, 68%, 0.35)`);
+      glow.addColorStop(1, `hsla(${hue}, 95%, 50%, 0)`);
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(0, 0, radius * 1.45, 0, Math.PI * 2);
+      ctx.fill();
+
+      for (let layer = layers; layer >= 1; layer--) {
+        const layerRatio = layer / layers;
+        const r = radius * (0.45 + 0.55 * layerRatio);
+        const layerRot = baseRot + (layer * Math.PI) / petals;
+
+        ctx.save();
+        ctx.rotate(layerRot);
+
+        for (let i = 0; i < petals; i++) {
+          const angle = (i * Math.PI * 2) / petals;
+          ctx.save();
+          ctx.rotate(angle);
+
+          const pWidth = r * 0.46;
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.bezierCurveTo(pWidth, -r * 0.32, pWidth * 0.85, -r * 0.88, 0, -r);
+          ctx.bezierCurveTo(-pWidth * 0.85, -r * 0.88, -pWidth, -r * 0.32, 0, 0);
+
+          const pGrad = ctx.createLinearGradient(0, 0, 0, -r);
+          const lightnessTop = 78 + (layers - layer) * 6;
+          const lightnessBase = 42 + (layers - layer) * 8;
+          pGrad.addColorStop(0, `hsla(${hue - 8}, 90%, ${lightnessBase}%, 0.95)`);
+          pGrad.addColorStop(0.65, `hsla(${hue}, 95%, 66%, 0.92)`);
+          pGrad.addColorStop(1, `hsla(${hue + 10}, 100%, ${lightnessTop}%, 0.98)`);
+
+          ctx.fillStyle = pGrad;
+          ctx.fill();
+
+          ctx.strokeStyle = `hsla(${hue + 15}, 100%, 88%, 0.35)`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+
+          ctx.restore();
+        }
+        ctx.restore();
+      }
+
+      const centerR = radius * 0.19;
+      const cGrad = ctx.createRadialGradient(0, 0, 1, 0, 0, centerR);
+      cGrad.addColorStop(0, '#fff9db');
+      cGrad.addColorStop(0.55, '#ffd166');
+      cGrad.addColorStop(1, '#f77f00');
+      ctx.fillStyle = cGrad;
+      ctx.beginPath();
+      ctx.arc(0, 0, centerR, 0, Math.PI * 2);
+      ctx.fill();
+
+      const dots = 8;
+      for (let d = 0; d < dots; d++) {
+        const a = (d * Math.PI * 2) / dots + baseRot;
+        const dist = centerR * 1.35;
+        ctx.fillStyle = '#ffe89e';
+        ctx.beginPath();
+        ctx.arc(Math.cos(a) * dist, Math.sin(a) * dist, Math.max(1.2, radius * 0.035), 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.restore();
+    }
+
+    // 3. Falling Petal
+    class FallingPetal {
+      constructor() {
+        this.reset(true);
+      }
+
+      reset(initial = false) {
+        this.x = Math.random() * W;
+        this.y = initial ? Math.random() * H : -25;
+        this.size = 6 + Math.random() * 9;
+        this.vy = 0.6 + Math.random() * 1.1;
+        this.vx = (Math.random() - 0.35) * 0.8;
+        this.hue = randomHue();
+        this.angle = Math.random() * Math.PI * 2;
+        this.spin = (Math.random() - 0.5) * 0.03;
+        this.sway = Math.random() * Math.PI * 2;
+        this.alpha = 0.45 + Math.random() * 0.45;
+      }
+
+      update() {
+        this.sway += 0.02;
+        this.x += this.vx + Math.sin(this.sway) * 0.45;
+        this.y += this.vy;
+        this.angle += this.spin;
+
+        if (this.y > H + 30 || this.x < -40 || this.x > W + 40) {
+          this.reset(false);
+        }
+      }
+
+      draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.globalAlpha = this.alpha;
+
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(this.size * 0.7, -this.size * 0.5, 0, -this.size * 1.3);
+        ctx.quadraticCurveTo(-this.size * 0.7, -this.size * 0.5, 0, 0);
+        ctx.fillStyle = `hsl(${this.hue}, 92%, 74%)`;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    // 4. Sparkle
+    class Sparkle {
+      constructor(x, y, hue) {
+        this.x = x;
+        this.y = y;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 0.6 + Math.random() * 3.2;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed - 0.4;
+        this.radius = 1.5 + Math.random() * 2.6;
+        this.hue = hue || randomHue();
+        this.alpha = 1;
+        this.decay = 0.014 + Math.random() * 0.018;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += 0.02;
+        this.alpha -= this.decay;
+      }
+
+      draw(ctx) {
+        if (this.alpha <= 0) return;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.fillStyle = `hsl(${this.hue}, 100%, 82%)`;
+        ctx.shadowColor = `hsl(${this.hue}, 100%, 70%)`;
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function spawnSparkleBurst(x, y, hue, count = 16) {
+      for (let i = 0; i < count; i++) {
+        sparkles.push(new Sparkle(x, y, hue));
+      }
+    }
+
+    function easeOutBack(x) {
+      const c1 = 1.70158;
+      const c3 = c1 + 1;
+      return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
+    }
+
+    for (let i = 0; i < 42; i++) fallingPetals.push(new FallingPetal());
+    for (let i = 0; i < 14; i++) stemmedFlowers.push(new StemFlower());
+    for (let i = 0; i < 10; i++) floatingBlooms.push(new FloatingBloom());
+
+    let frameCount = 0;
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      frameCount++;
+
+      if (frameCount % 28 === 0 && stemmedFlowers.length < MAX_STEMMED) {
+        stemmedFlowers.push(new StemFlower());
+      }
+
+      if (frameCount % 22 === 0 && floatingBlooms.length < MAX_FLOATING) {
+        floatingBlooms.push(new FloatingBloom());
+      }
+
+      for (let i = 0; i < fallingPetals.length; i++) {
+        fallingPetals[i].update();
+        fallingPetals[i].draw(ctx);
+      }
+
+      for (let i = stemmedFlowers.length - 1; i >= 0; i--) {
+        const f = stemmedFlowers[i];
+        f.update();
+        f.draw(ctx);
+        if (f.alpha <= 0) stemmedFlowers.splice(i, 1);
+      }
+
+      for (let i = floatingBlooms.length - 1; i >= 0; i--) {
+        const b = floatingBlooms[i];
+        b.update();
+        b.draw(ctx);
+        if (b.alpha <= 0) floatingBlooms.splice(i, 1);
+      }
+
+      for (let i = sparkles.length - 1; i >= 0; i--) {
+        sparkles[i].update();
+        sparkles[i].draw(ctx);
+        if (sparkles[i].alpha <= 0) sparkles.splice(i, 1);
+      }
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    let isPointerDown = false;
+    let lastDragSpawn = 0;
+
+    function bloomAt(x, y, withStem = true) {
+      floatingBlooms.push(new FloatingBloom(x, y, 26 + Math.random() * 26));
+      if (withStem && stemmedFlowers.length < MAX_STEMMED + 10) {
+        stemmedFlowers.push(new StemFlower(x, y));
+      }
+      spawnSparkleBurst(x, y, randomHue(), 18);
+    }
+
+    canvas.addEventListener('pointerdown', (e) => {
+      isPointerDown = true;
+      bloomAt(e.clientX, e.clientY, true);
+    });
+
+    window.addEventListener('pointerup', () => {
+      isPointerDown = false;
+    });
+
+    canvas.addEventListener('pointermove', (e) => {
+      if (!isPointerDown) return;
+      const now = performance.now();
+      if (now - lastDragSpawn > 90) {
+        floatingBlooms.push(new FloatingBloom(e.clientX, e.clientY, 18 + Math.random() * 20));
+        spawnSparkleBurst(e.clientX, e.clientY, randomHue(), 8);
+        lastDragSpawn = now;
+      }
+    });
+
+    function triggerBloomWave() {
+      for (let i = 0; i < 12; i++) {
+        setTimeout(() => {
+          const rx = W * (0.1 + Math.random() * 0.8);
+          const ry = H * (0.15 + Math.random() * 0.7);
+          bloomAt(rx, ry, i % 2 === 0);
+        }, i * 75);
+      }
+    }
+
+    const cardWrapper = document.getElementById('cardWrapper');
+    const paletteNameEl = document.getElementById('paletteName');
+
+    document.getElementById('btnBurstCard').addEventListener('click', triggerBloomWave);
+    document.getElementById('btnBloomWave').addEventListener('click', triggerBloomWave);
+
+    function toggleCard() {
+      cardWrapper.classList.toggle('minimized');
+    }
+    document.getElementById('btnHideCard').addEventListener('click', toggleCard);
+    document.getElementById('btnToggleCard').addEventListener('click', toggleCard);
+
+    document.getElementById('btnPalette').addEventListener('click', () => {
+      currentPaletteIndex = (currentPaletteIndex + 1) % palettes.length;
+      paletteNameEl.textContent = palettes[currentPaletteIndex].name;
+      triggerBloomWave();
+    });
+
+    // Music System: Plays "Hạnh phúc cho mỗi người" MP3 or falls back to gentle melody
+    const bgAudio = document.getElementById('bgAudio');
+    const audioFileInput = document.getElementById('audioFileInput');
+    const btnMusic = document.getElementById('btnMusic');
+    const btnPickAudio = document.getElementById('btnPickAudio');
+    const discIcon = document.getElementById('discIcon');
+    const songTitleDisplay = document.getElementById('songTitleDisplay');
+
+    let audioCtx = null;
+    let musicPlaying = false;
+    let fallbackInterval = null;
+    let usingFallbackSynth = false;
+
+    const melodyNotes = [523.25, 659.25, 783.99, 1046.50, 880.00, 783.99, 659.25, 587.33, 659.25, 783.99, 880.00, 987.77, 1046.50];
+    let noteIdx = 0;
+
+    function playChimeNote(freq) {
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, now);
+
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.exponentialRampToValueAtTime(0.08, now + 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.8);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + 1.85);
+    }
+
+    function startFallbackSynth() {
+      usingFallbackSynth = true;
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      clearInterval(fallbackInterval);
+      playChimeNote(melodyNotes[noteIdx]);
+      fallbackInterval = setInterval(() => {
+        noteIdx = (noteIdx + 1) % melodyNotes.length;
+        playChimeNote(melodyNotes[noteIdx]);
+      }, 550);
+    }
+
+    function stopAllMusic() {
+      bgAudio.pause();
+      clearInterval(fallbackInterval);
+      musicPlaying = false;
+      btnMusic.textContent = '🎵 Phát: Hạnh phúc cho mỗi người';
+      btnMusic.classList.remove('active');
+      discIcon.classList.remove('spinning');
+    }
+
+    function startMusic() {
+      musicPlaying = true;
+      btnMusic.textContent = '🎵 Đang phát: Hạnh phúc cho mỗi người';
+      btnMusic.classList.add('active');
+      discIcon.classList.add('spinning');
+
+      bgAudio.play().then(() => {
+        usingFallbackSynth = false;
+        clearInterval(fallbackInterval);
+      }).catch(() => {
+        // Nếu chưa có file hanh-phuc-cho-moi-nguoi.mp3 trong thư mục thì phát giai điệu nhẹ dự phòng
+        startFallbackSynth();
+      });
+    }
+
+    btnMusic.addEventListener('click', () => {
+      if (musicPlaying) {
+        stopAllMusic();
+      } else {
+        startMusic();
+      }
+    });
+
+    // Cho phép chọn trực tiếp file MP3 bài "Hạnh phúc cho mỗi người" từ máy
+    btnPickAudio.addEventListener('click', () => {
+      audioFileInput.click();
+    });
+
+    audioFileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const fileURL = URL.createObjectURL(file);
+      bgAudio.src = fileURL;
+      songTitleDisplay.textContent = 'Đang phát: Hạnh phúc cho mỗi người';
+      clearInterval(fallbackInterval);
+      startMusic();
+    });
+  </script>
+</body>
+</html>
